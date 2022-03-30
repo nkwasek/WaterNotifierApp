@@ -34,7 +34,6 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="wrap_content"
         android:padding="16dp"
         android:text="Sign in with Google"
-        android:drawableLeft=""
         android:textSize="24sp"
         android:layout_centerHorizontal="true"/>
 
@@ -42,6 +41,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/spacer_login2"
         android:layout_below="@id/sign_in_button"
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="60dp"
+        android:layout_alignBottom="@id/sign_in_button"/>
 
 </RelativeLayout>
