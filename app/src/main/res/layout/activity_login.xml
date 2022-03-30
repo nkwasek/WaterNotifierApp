@@ -3,45 +3,34 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <Space
-        android:id="@+id/spacer_login1"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="70dp"
+    android:layout_marginTop="40dp">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/glass_gif"
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="match_parent"
+        android:src="@drawable/glass_of_water"/>
 
     <TextView
         android:id="@+id/app_title_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spacer_login1"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/poppins_black"
         android:text="Water Notifier App"
         android:textAlignment="center"
         android:textSize="45dp" />
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/glass_gif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/glass_of_water"
-        android:layout_below="@id/app_title_textview"/>
-
     <Button
         android:id="@+id/sign_in_button"
-        android:layout_below="@id/glass_gif"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:padding="16dp"
+        android:padding="15dp"
         android:text="Sign in with Google"
         android:textSize="24sp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
-
-    <Space
-        android:id="@+id/spacer_login2"
-        android:layout_below="@id/sign_in_button"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignBottom="@id/sign_in_button"/>
 
 </RelativeLayout>
