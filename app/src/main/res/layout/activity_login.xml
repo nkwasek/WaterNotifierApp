@@ -3,35 +3,52 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="70dp"
-    android:layout_marginTop="40dp">
+    android:layout_height="match_parent">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/glass_gif"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/glass_of_water"/>
+        app:srcCompat="@drawable/start" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/app_title_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/poppins_black"
-        android:text="Water Notifier App"
-        android:textAlignment="center"
-        android:textSize="45dp" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            app:srcCompat="@drawable/ic_water_drop"
+            android:paddingTop="160dp"
+            android:paddingHorizontal="15dp"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/sign_in_button"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:padding="15dp"
-        android:text="Sign in with Google"
-        android:drawableLeft="@drawable/ic_login"
-        android:textSize="24sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/wendy_one"
+            android:text="Water Notifier"
+            android:textSize="70dp"
+            android:textAlignment="center"
+            android:paddingTop="30dp"/>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
+            app:srcCompat="@drawable/sign_in"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/textView"
+            android:paddingTop="220dp"/>
+
+
+    </RelativeLayout>
 
 </RelativeLayout>
