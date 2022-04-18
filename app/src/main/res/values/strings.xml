@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">WaterNotifier</string>
+    <string-array name="sex_array">
+        <item></item>
+        <item>female</item>
+        <item>male</item>
+        <item>other</item>
+    </string-array>
 </resources>

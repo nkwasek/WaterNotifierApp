@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/goal_background" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="100dp">
+
+        <TextView
+            android:id="@+id/textview_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sex"
+            android:textSize="27dp"
+            android:paddingBottom="5dp"/>
+
+        <RelativeLayout
+            android:id="@+id/spinner_layout"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:background="@drawable/goal_rect"
+            android:layout_below="@id/textview_sex">
+
+            <Spinner
+                android:id="@+id/spinner_sex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:layout_marginLeft="8dp"
+                android:spinnerMode="dropdown"
+                android:textSize="24dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@drawable/drop" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textview_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinner_layout"
+            android:text="Weight"
+            android:textSize="27dp"
+            android:paddingVertical="5dp"/>
+
+        <RelativeLayout
+            android:id="@+id/weight_layout"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:background="@drawable/goal_rect"
+            android:layout_below="@id/textview_weight">
+
+            <EditText
+                android:id="@+id/edit_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="24dp"
+                android:layout_marginLeft="10dp"
+                android:background="#00000000"
+                android:textColor="@color/text_color"
+                android:paddingTop="5dp"/>
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/textview_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weight_layout"
+            android:text="Height"
+            android:textSize="27dp"
+            android:paddingVertical="5dp"/>
+
+        <TableLayout
+            android:id="@+id/height_layout"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:background="@drawable/goal_rect"
+            android:layout_below="@id/textview_height">
+
+            <TableRow>
+
+            <EditText
+                android:id="@+id/edit_height"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:textSize="24dp"
+                android:layout_marginLeft="10dp"
+                android:background="#00000000"
+                android:textColor="@color/text_color"
+                android:paddingTop="5dp"
+                android:layout_column="1"/>
+
+                <TextView
+                    android:id="@+id/text_cm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cm"
+                    android:textSize="24dp"
+                    android:textColor="@color/text_color"
+                    android:layout_column="2"/>
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textview_lifestyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/height_layout"
+            android:text="Lifestyle"
+            android:textSize="27dp"
+            android:paddingVertical="5dp"/>
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

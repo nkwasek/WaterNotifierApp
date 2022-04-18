@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.20277777777777778" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/drawable/ic_launcher_background.xml" value="0.20277777777777778" />
+        <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/activity_goal.xml" value="0.20572916666666666" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/activity_login.xml" value="0.1286231884057971" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/activity_main.xml" value="0.17708333333333334" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/login_activity.xml" value="0.1644021739130435" />
+        <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/spinner_item.xml" value="0.20572916666666666" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
       </map>
     </option>
