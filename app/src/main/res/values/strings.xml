@@ -6,4 +6,11 @@
         <item>male</item>
         <item>other</item>
     </string-array>
+
+    <string-array name="lifestyle_array">
+        <item></item>
+        <item>active</item>
+        <item>passive</item>
+        <item>medium</item>
+    </string-array>
 </resources>

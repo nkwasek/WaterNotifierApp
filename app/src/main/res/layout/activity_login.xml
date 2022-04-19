@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,20 +9,54 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/login_background" />
-
-
-    <RelativeLayout
+        app:srcCompat="@drawable/background"
+        android:scaleType="center"/>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageButton
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            app:srcCompat="@drawable/ic_water_drop"
+            android:paddingTop="160dp"
+            android:paddingHorizontal="15dp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#00FFFFFF"
-            app:srcCompat="@drawable/sign_in"
-            android:layout_centerHorizontal="true"
-            android:paddingTop="450dp"/>
+            android:text="Water Notifier"
+            android:textSize="70dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:paddingTop="30dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/google_rect"
+            android:layout_marginTop="200dp"
+            android:layout_below="@id/textView"
+            android:layout_centerHorizontal="true">
+            <Button
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign in with Google"
+                android:textColor="@color/text_color"
+                android:background="#00FFFFFF" />
+        </RelativeLayout>
+
+
+
     </RelativeLayout>
 
 </RelativeLayout>
