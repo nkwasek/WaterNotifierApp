@@ -17,8 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Set your daily goal"
-        android:textSize="40dp"
-        android:textStyle="bold"
+        android:textSize="35dp"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:paddingVertical="20dp"/>
@@ -31,7 +30,8 @@
         android:layout_marginHorizontal="30dp"
         android:layout_below="@id/title"
         android:shrinkColumns="1"
-        android:background="@drawable/rounded_corner"
+
+        android:background="@drawable/rect_rad10_trans"
         android:paddingHorizontal="30dp"
         android:paddingVertical="20dp">
 
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sex"
-                android:textSize="29dp" />
+                android:textSize="25dp" />
 
             <RelativeLayout
                 android:id="@+id/spinner_layout"
@@ -52,7 +52,7 @@
                 android:layout_height="40dp"
                 android:layout_weight=".28"
                 android:orientation="horizontal"
-                android:background="@drawable/rounded_corner">
+                android:background="@drawable/rect_rad10_trans">
 
                 <Spinner
                     android:id="@+id/spinner_sex"
@@ -64,7 +64,7 @@
                     android:layout_marginLeft="8dp"
                     android:background="@android:color/transparent"
                     android:spinnerMode="dropdown"
-                    android:textSize="27dp" />
+                    android:textSize="27dp"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -87,13 +87,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Weight"
-                android:textSize="29dp" />
+                android:textSize="25dp" />
 
             <RelativeLayout
                 android:id="@+id/weight_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:background="@drawable/rounded_corner">
+                android:background="@drawable/rect_rad10_trans">
 
                 <EditText
                     android:id="@+id/edit_weight"
@@ -104,9 +104,8 @@
                     android:background="#00000000"
                     android:ems="10"
                     android:inputType="number"
-                    android:paddingTop="5dp"
                     android:textColor="@color/text_color"
-                    android:textSize="27dp" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -116,7 +115,7 @@
                     android:text="kg"
                     android:paddingRight="5dp"
                     android:textColor="@color/text_color"
-                    android:textSize="27dp" />
+                    android:textSize="25dp" />
 
 
             </RelativeLayout>
@@ -132,13 +131,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Height"
-                android:textSize="29dp"/>
+                android:textSize="25dp"/>
 
             <RelativeLayout
                 android:id="@+id/height_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:background="@drawable/rounded_corner"
+                android:background="@drawable/rect_rad10_trans"
                 >
 
                 <EditText
@@ -149,9 +148,8 @@
                     android:background="#00000000"
                     android:ems="10"
                     android:inputType="number"
-                    android:paddingTop="5dp"
                     android:textColor="@color/text_color"
-                    android:textSize="27dp" />
+                    android:textSize="25dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -161,7 +159,7 @@
                     android:text="cm"
                     android:paddingRight="5dp"
                     android:textColor="@color/text_color"
-                    android:textSize="27dp" />
+                    android:textSize="25dp" />
 
             </RelativeLayout>
 
@@ -177,12 +175,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lifestyle "
-                android:textSize="29dp" />
+                android:textSize="25dp" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:background="@drawable/rounded_corner">
+                android:background="@drawable/rect_rad10_trans">
 
                 <Spinner
                     android:id="@+id/spinner_lifestyle"
@@ -207,16 +205,75 @@
 
         </TableRow>
 
+        <TableRow
+            android:id="@+id/calculate_button_row"
+            android:paddingVertical="5dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rect_rad40_mid"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="30dp"
+                android:layout_span="2">
+            <Button
+                android:id="@+id/calculateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calculate"
+                android:layout_centerInParent="true"
+                android:textSize="20dp"
+                android:textColor="@color/text_color"
+                android:background="#00FFFFFF" />
+            </RelativeLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/result_row"
+            android:paddingVertical="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daily water demand"
+                android:textSize="25dp"
+                android:layout_span="2"
+                android:textAlignment="center"/>
+
+
+        </TableRow>
+
+        <TableRow
+            android:paddingVertical="5dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/rect_rad10_trans"
+                android:layout_span="2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2000 ml"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+
+        </TableRow>
+
     </TableLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/google_rect"
+        android:background="@drawable/rect_rad40_white"
         android:layout_below="@id/table_layout"
         android:layout_centerHorizontal="true">
         <Button
-            android:id="@+id/imageButton"
+            android:id="@+id/goal_ok_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OK"

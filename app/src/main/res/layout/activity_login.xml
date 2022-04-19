@@ -42,7 +42,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/google_rect"
+            android:background="@drawable/rect_rad40_white"
             android:layout_marginTop="200dp"
             android:layout_below="@id/textView"
             android:layout_centerHorizontal="true">
