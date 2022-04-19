@@ -33,11 +33,11 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_black"
+            android:paddingTop="20dp"
             android:text="Water Notifier"
-            android:textSize="70dp"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:paddingTop="30dp"/>
+            android:textSize="70dp" />
 
         <RelativeLayout
             android:layout_width="wrap_content"

@@ -9,4 +9,11 @@
 
     </style>
 
+    <style name="MySeekBar" parent="Widget.AppCompat.SeekBar">
+        <item name="android:progressBackgroundTint">#616161</item>
+        <item name="android:progressTint">#1E1E1E</item>
+        <item name="android:thumbTint">#454545</item>
+    </style>
+
+
 </resources>

@@ -240,8 +240,6 @@
                 android:textSize="25dp"
                 android:layout_span="2"
                 android:textAlignment="center"/>
-
-
         </TableRow>
 
         <TableRow
@@ -250,7 +248,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:background="@drawable/rect_rad10_trans"
+                android:background="@drawable/rect_rad10_white"
                 android:layout_span="2">
 
                 <TextView
@@ -260,6 +258,43 @@
                     android:textSize="30dp"
                     android:textStyle="bold"
                     android:layout_centerInParent="true"/>
+            </RelativeLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:paddingVertical="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_span="2"
+                android:background="@drawable/rect_rad10_white">
+
+                <ImageButton
+                    android:id="@+id/minus_button"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/ic_minus"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"/>
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/minus_button"
+                    android:layout_centerInParent="true"
+                    style="@style/MySeekBar"/>
+
+                <ImageButton
+                    android:id="@+id/plus_button"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_toRightOf="@id/seekBar"
+                    android:background="@drawable/ic_plus"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"/>
             </RelativeLayout>
 
         </TableRow>
