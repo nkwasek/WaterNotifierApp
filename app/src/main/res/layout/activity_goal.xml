@@ -19,7 +19,7 @@
 
         <TextView
             android:id="@+id/textview_sex"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="Sex"
             android:textSize="29dp"
@@ -39,12 +39,11 @@
                 android:id="@+id/spinner_sex"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentStart="false"
-                android:layout_centerVertical="false"
+                android:layout_alignParentRight="true"
                 android:layout_gravity="right|center_vertical"
                 android:layout_marginLeft="8dp"
                 android:background="@android:color/transparent"
-                android:gravity="center"
+                android:gravity="right"
                 android:spinnerMode="dropdown"
                 android:textSize="27dp" />
 
@@ -53,13 +52,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center"
+                android:layout_gravity="right"
                 android:src="@drawable/drop" />
         </RelativeLayout>
 
         <TextView
             android:id="@+id/textview_weight"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/spinner_layout"
             android:layout_alignBaseline="@id/weight_layout"
@@ -108,7 +107,7 @@
 
         <TextView
             android:id="@+id/textview_height"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/weight_layout"
             android:text="Height"
@@ -151,7 +150,7 @@
 
         <TextView
             android:id="@+id/textview_lifestyle"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/height_layout"
             android:text="Lifestyle"
