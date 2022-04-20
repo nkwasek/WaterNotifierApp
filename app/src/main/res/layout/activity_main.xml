@@ -1,18 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="center"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:foreground="@drawable/ic_waves"
+        android:scaleType="fitXY"
+        android:foregroundTint="@color/white"
+        android:layout_alignParentBottom="true" />
+
+    <ImageButton
+        android:id="@+id/settings_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_settings"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"/>
+
+    <TableLayout
+        android:id="@+id/progress_tablelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect_rad10_trans"
+        android:layout_marginHorizontal="30dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="15dp"
+        android:layout_below="@id/settings_button"
+        android:shrinkColumns="0"
+        android:stretchColumns="0">
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Today's progress"
+                android:textSize="28dp"
+                android:textAlignment="center"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_black"
+                android:textSize="26dp"
+                android:text="0 / 2000 ml"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_black"
+                android:textSize="23dp"
+                android:text="GOAL NOT ACHEIVED"
+                android:gravity="center"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <ImageButton
+        android:id="@+id/add_drink_button"
+        android:layout_below="@id/progress_tablelayout"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/ic_add"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:background="@color/transparent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/add_drink_textview"
+        android:layout_below="@id/add_drink_button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Water Notifier App"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Add drink"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_below="@id/add_drink_textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rect_rad10_trans"
+        android:paddingTop="10dp"
+        android:layout_margin="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Statistics"
+            android:textSize="25dp"
+            android:textAlignment="center"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -314,7 +314,6 @@
             android:textSize="23dp"
             android:textColor="@color/grey_dark"
             android:background="#00FFFFFF" />
-
     </RelativeLayout>
 
 </RelativeLayout>
