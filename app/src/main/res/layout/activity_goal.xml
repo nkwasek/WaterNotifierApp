@@ -30,7 +30,6 @@
         android:layout_marginHorizontal="30dp"
         android:layout_below="@id/title"
         android:shrinkColumns="1"
-
         android:background="@drawable/rect_rad10_trans"
         android:paddingHorizontal="30dp"
         android:paddingVertical="20dp">

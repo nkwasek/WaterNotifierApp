@@ -11,13 +11,6 @@
         android:src="@drawable/background"
         android:scaleType="center"/>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:foreground="@drawable/ic_waves"
-        android:scaleType="fitXY"
-        android:foregroundTint="@color/white"
-        android:layout_alignParentBottom="true" />
 
     <ImageButton
         android:id="@+id/settings_button"

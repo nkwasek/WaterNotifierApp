@@ -1,6 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="center"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add drink"
+        android:textSize="35dp"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:paddingVertical="30dp"/>
+
+    <RelativeLayout
+        android:id="@+id/volume_rel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:background="@drawable/rect_rad10_trans"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/choose_volume_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose volume"
+            android:textSize="24dp"
+            android:textAlignment="center"/>
+
+
+        <TableLayout
+            android:id="@+id/table_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:layout_below="@id/choose_volume_textview">
+
+
+            <TableRow
+                android:paddingVertical="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="24dp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textSize="24dp"
+                    android:textAlignment="center"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drink_type_rel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/volume_rel_layout"
+        android:background="@drawable/rect_rad10_trans"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp"
+        android:layout_marginHorizontal="30dp">
+
+        <TextView
+            android:id="@+id/drink_type_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose type od drink"
+            android:textSize="24dp"
+            android:textAlignment="center"/>
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shrinkColumns="*"
+            android:layout_below="@id/drink_type_textview">
+
+
+            <TableRow
+                android:paddingVertical="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="24dp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textSize="24dp"
+                    android:textAlignment="center"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect_rad40_white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/goal_ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="23dp"
+            android:textColor="@color/grey_dark"
+            android:background="#00FFFFFF" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
