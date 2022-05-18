@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_drink)
+        setContentView(R.layout.activity_time_set)
         //initGoalSpinners()
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 

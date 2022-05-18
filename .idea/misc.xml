@@ -23,6 +23,10 @@
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/spinner_item.xml" value="0.20572916666666666" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/activity_add_drink.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/activity_goal.xml" value="0.1" />
+        <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/activity_time_set.xml" value="0.1" />
+        <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/time_picker.xml" value="0.1" />
       </map>
     </option>
   </component>
