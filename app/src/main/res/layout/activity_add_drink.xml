@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:paddingVertical="30dp"
+        android:paddingVertical="20dp"
         android:text="Add drink"
         android:textAlignment="center"
         android:textSize="35dp" />
@@ -30,17 +30,17 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/rect_rad10_trans"
-        android:paddingHorizontal="30dp"
-        android:paddingVertical="20dp">
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp">
 
         <TextView
             android:id="@+id/choose_volume_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
-            android:text="Choose volume"
+            android:text="SET VOLUME"
             android:textAlignment="center"
-            android:textSize="24dp" />
+            android:textSize="23dp" />
 
 
         <TableLayout
@@ -159,31 +159,35 @@
                 android:paddingVertical="5dp">
 
                 <RelativeLayout
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="45dp"
-                    android:layout_span="3"
-                    android:paddingHorizontal="10dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_span="2"
+                    android:paddingHorizontal="20dp"
                     android:background="@drawable/rect_rad10_mid">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ml"
-                        android:layout_alignParentRight="true"
-                        android:textSize="20dp"/>
 
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:inputType = "number"
                         android:textSize="20dp"
-                        android:textAlignment="center"/>
+                        android:textAlignment="center"
+                        android:backgroundTint="@color/transparent"
+                        android:textColor="@color/text_color"/>
 
                 </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ml"
+                    android:layout_alignParentLeft="true"
+                    android:paddingLeft="5dp"
+                    android:textSize="21dp"/>
 
             </TableRow>
 
         </TableLayout>
-
 
     </RelativeLayout>
 
@@ -195,16 +199,16 @@
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/rect_rad10_trans"
         android:paddingHorizontal="30dp"
-        android:paddingVertical="20dp">
+        android:paddingVertical="10dp">
 
         <TextView
             android:id="@+id/drink_type_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
-            android:text="Choose type od drink"
+            android:text="SET TYPE OF DRINK"
             android:textAlignment="center"
-            android:textSize="24dp" />
+            android:textSize="23dp" />
 
 
         <TableLayout
@@ -357,6 +361,40 @@
                         android:layout_below="@id/icon_other_type"/>
 
                 </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="5dp">
+
+                <RelativeLayout
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_span="2"
+                    android:paddingHorizontal="20dp"
+                    android:background="@drawable/rect_rad10_mid">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType = "number"
+                        android:textSize="20dp"
+                        android:textAlignment="center"
+                        android:backgroundTint="@color/transparent"
+                        android:textColor="@color/text_color"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:layout_alignParentLeft="true"
+                    android:paddingLeft="5dp"
+                    android:textSize="21dp"/>
 
             </TableRow>
 
