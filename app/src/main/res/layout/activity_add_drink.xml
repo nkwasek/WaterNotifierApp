@@ -45,26 +45,57 @@
             android:id="@+id/table_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:stretchColumns="*"
             android:shrinkColumns="*"
             android:layout_below="@id/choose_volume_textview">
 
-
             <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:paddingVertical="5dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textSize="24dp"
-                    android:textAlignment="center"/>
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_glass"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:textSize="24dp"
-                    android:textAlignment="center"/>
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_coffee"/>
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_bottle"/>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="250ml"
+                        android:textSize="24dp"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="350ml"
+                        android:textSize="24dp"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="500ml"
+                        android:textSize="24dp"
+                        android:textAlignment="center"/>
 
             </TableRow>
 
@@ -94,11 +125,14 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:stretchColumns="*"
             android:shrinkColumns="*"
             android:layout_below="@id/drink_type_textview">
 
 
             <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:paddingVertical="5dp">
 
                 <TextView
@@ -112,6 +146,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2"
+                    android:textSize="24dp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
                     android:textSize="24dp"
                     android:textAlignment="center"/>
 
