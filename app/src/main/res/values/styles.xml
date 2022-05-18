@@ -15,5 +15,15 @@
         <item name="android:thumbTint">#454545</item>
     </style>
 
+    <style name="AddDrinkIcon">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="DrinkVolume">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
 
 </resources>
