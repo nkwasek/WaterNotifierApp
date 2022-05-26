@@ -13,20 +13,18 @@
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/drawable/rect_rad40_mid.xml" value="0.221875" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/drawable/rect_rad40_trans.xml" value="0.221875" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/drawable/rounded_corner.xml" value="0.35555555555555557" />
+        <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/drawable/switch_color_selector.xml" value="0.1245" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/activity_add_drink.xml" value="0.13072916666666667" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/activity_goal.xml" value="0.20572916666666666" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/activity_login.xml" value="0.1286231884057971" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/activity_main.xml" value="0.17708333333333334" />
+        <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/activity_settings.xml" value="0.365625" />
+        <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/activity_time_set.xml" value="0.36666666666666664" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/login_activity.xml" value="0.1644021739130435" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/rounded_corner.xml" value="0.20572916666666666" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/simple_spinner_dropdown.xml" value="0.20572916666666666" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/layout/spinner_item.xml" value="0.20572916666666666" />
         <entry key="..\:/Dokumenty/Semestr2/WPAM/WaterNotifier/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/activity_add_drink.xml" value="0.1334853090172239" />
-        <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/activity_goal.xml" value="0.1" />
-        <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/activity_time_set.xml" value="0.1" />
-        <entry key="..\:/Users/tczap/Desktop/Natalka/WaterNotifierApp/app/src/main/res/layout/time_picker.xml" value="0.1" />
       </map>
     </option>
   </component>

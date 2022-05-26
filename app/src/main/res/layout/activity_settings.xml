@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:text="Settings"
+        android:textAlignment="center"
+        android:textSize="35dp"
+        android:paddingVertical="25dp"/>
+
+    <TableLayout
+        android:id="@+id/daily_goal_tablelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:background="@drawable/rect_rad10_trans"
+        android:layout_marginHorizontal="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:shrinkColumns="0"
+        android:stretchColumns="0">
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DAILY GOAL"
+                android:textColor="@color/grey_dark"
+                android:textSize="25dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:paddingBottom="10dp"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/textview_goal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="23dp"
+                android:text="2000 ml"
+                android:gravity="center"
+                android:paddingBottom="15dp"/>
+        </TableRow>
+
+        <TableRow>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="90dp"
+                android:background="@drawable/rect_rad40_white"
+                android:layout_centerHorizontal="true">
+                <Button
+                    android:id="@+id/goal_ok_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHANGE"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/text_color"
+                    android:background="#00FFFFFF" />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/notification_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/daily_goal_tablelayout"
+        android:background="@drawable/rect_rad10_trans"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingHorizontal="25dp"
+        android:shrinkColumns="0"
+        android:stretchColumns="0">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NOTIFICATIONS"
+                android:id="@+id/notification_title"
+                android:textColor="@color/grey_dark"
+                android:textSize="25dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:paddingBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/notification_title"
+                android:textSize="23dp"
+                android:text="Turn ON/OFF"
+                android:gravity="left"
+                android:paddingBottom="15dp"/>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch1"
+                android:layout_below="@id/notification_title"
+                android:layout_width="wrap_content"
+                android:gravity="right"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content"
+                app:switchMinWidth="50dp"
+                android:textColor="@color/text_color"
+                android:checked="true"
+                app:switchPadding="15dp"
+                app:thumbTint="@drawable/switch_color_selector"
+                app:trackTint="@color/grey_very_light"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/switch1"
+            android:textSize="23dp"
+            android:text="Period"
+            android:gravity="left"
+            android:paddingBottom="15dp"/>
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/switch1"
+            android:inputType="time"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rect_rad40_trans"
+            android:textAlignment="center"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
