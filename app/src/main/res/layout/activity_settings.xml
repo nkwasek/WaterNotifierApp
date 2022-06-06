@@ -64,7 +64,7 @@
                 android:background="@drawable/rect_rad40_white"
                 android:layout_centerHorizontal="true">
                 <Button
-                    android:id="@+id/goal_ok_button"
+                    android:id="@+id/goal_change_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CHANGE"
@@ -149,4 +149,111 @@
     </RelativeLayout>
 
 
+    <TableLayout
+        android:id="@+id/daytime_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notification_layout"
+        android:background="@drawable/rect_rad10_trans"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingHorizontal="25dp"
+        android:shrinkColumns="0"
+        android:stretchColumns="0">
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DAYTIME"
+                android:textColor="@color/grey_dark"
+                android:textSize="25dp"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:layout_span="2"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="23dp"
+                android:text="Start"
+                android:gravity="left"
+                android:paddingBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/day_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="23dp"
+                android:text="9:00 AM"
+                android:gravity="center"
+                android:paddingBottom="15dp"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="23dp"
+                android:text="End"
+                android:gravity="left"
+                android:paddingBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/day_end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="23dp"
+                android:text="2:00 AM"
+                android:gravity="center"
+                android:paddingBottom="15dp"/>
+        </TableRow>
+
+        <TableRow>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="65dp"
+                android:background="@drawable/rect_rad40_white"
+                android:layout_centerHorizontal="true"
+                android:layout_span="2">
+                <Button
+                    android:id="@+id/daytime_change_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHANGE"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/text_color"
+                    android:background="#00FFFFFF" />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect_rad40_white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp">
+        <Button
+            android:id="@+id/goal_ok_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textSize="21dp"
+            android:textColor="@color/grey_dark"
+            android:background="#00FFFFFF" />
+    </RelativeLayout>
 </RelativeLayout>

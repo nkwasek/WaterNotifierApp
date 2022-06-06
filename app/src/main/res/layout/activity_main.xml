@@ -13,7 +13,7 @@
 
 
     <ImageButton
-        android:id="@+id/settings_button"
+        android:id="@+id/settingsButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_settings"
@@ -30,7 +30,7 @@
         android:layout_marginHorizontal="30dp"
         android:paddingTop="20dp"
         android:paddingBottom="15dp"
-        android:layout_below="@id/settings_button"
+        android:layout_below="@id/settingsButton"
         android:shrinkColumns="0"
         android:stretchColumns="0">
 
