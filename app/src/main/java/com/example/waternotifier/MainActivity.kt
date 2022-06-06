@@ -22,24 +22,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val addDrinkButton = findViewById<ImageButton>(R.id.addDrinkButton)
+        addDrinkButton.setOnClickListener {
+            val intent = Intent(this, AddDrinkActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
-    fun initGoalSpinners()
-    {
-        val spinnerSex: Spinner = findViewById(R.id.spinner_sex)
-        val spinnerLifestyle: Spinner = findViewById(R.id.spinner_lifestyle)
 
-        ArrayAdapter.createFromResource(this, R.array.sex_array, R.layout.spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown)
-            spinnerSex.adapter = adapter
-        }
-
-        ArrayAdapter.createFromResource(this, R.array.lifestyle_array, R.layout.spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown)
-            spinnerLifestyle.adapter = adapter
-        }
-    }
 }

@@ -48,12 +48,14 @@
         <TableRow
             android:paddingBottom="70dp">
             <RelativeLayout
+                android:id="@+id/startTimeButton"
                 android:layout_height="50dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/rect_rad10_white"
                 android:layout_marginHorizontal="40dp">
 
                 <TextView
+                    android:id="@+id/startTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="8:00"
@@ -75,11 +77,13 @@
 
         <TableRow>
             <RelativeLayout
+                android:id="@+id/stopTimeButton"
                 android:layout_height="50dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/rect_rad10_white"
                 android:layout_marginHorizontal="40dp">
                 <TextView
+                    android:id="@+id/stopTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="24:00"
@@ -98,7 +102,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp">
         <Button
-            android:id="@+id/goal_ok_button"
+            android:id="@+id/goalOkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OK"

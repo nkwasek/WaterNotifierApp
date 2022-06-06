@@ -8,8 +8,8 @@
         android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/background"
-        android:scaleType="center"/>
+        android:scaleType="center"
+        app:srcCompat="@drawable/background" />
 
     <TimePicker
         android:id="@+id/timepicker_end"

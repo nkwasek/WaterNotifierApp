@@ -62,14 +62,14 @@
                 android:textAlignment="center"
                 android:fontFamily="@font/poppins_black"
                 android:textSize="23dp"
-                android:text="GOAL NOT ACHEIVED"
+                android:text="GOAL NOT ACHIEVED"
                 android:gravity="center"/>
         </TableRow>
 
     </TableLayout>
 
     <ImageButton
-        android:id="@+id/add_drink_button"
+        android:id="@+id/addDrinkButton"
         android:layout_below="@id/progress_tablelayout"
         android:layout_width="75dp"
         android:layout_height="75dp"
@@ -81,8 +81,8 @@
         android:layout_marginBottom="5dp"/>
 
     <TextView
-        android:id="@+id/add_drink_textview"
-        android:layout_below="@id/add_drink_button"
+        android:id="@+id/addDrinkTextView"
+        android:layout_below="@id/addDrinkButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add drink"
@@ -91,7 +91,7 @@
         />
 
     <RelativeLayout
-        android:layout_below="@id/add_drink_textview"
+        android:layout_below="@id/addDrinkTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rect_rad10_trans"
