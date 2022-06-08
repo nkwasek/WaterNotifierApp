@@ -20,12 +20,14 @@ class MainActivity : AppCompatActivity() {
         settingsButton.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         val addDrinkButton = findViewById<ImageButton>(R.id.addDrinkButton)
         addDrinkButton.setOnClickListener {
             val intent = Intent(this, AddDrinkActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
 

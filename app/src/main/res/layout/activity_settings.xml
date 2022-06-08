@@ -248,7 +248,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp">
         <Button
-            android:id="@+id/goalOkButton"
+            android:id="@+id/settingsOkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OK"

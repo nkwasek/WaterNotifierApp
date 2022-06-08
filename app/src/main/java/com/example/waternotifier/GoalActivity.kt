@@ -17,7 +17,14 @@ class GoalActivity : AppCompatActivity() {
         okButton.setOnClickListener{
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
+            finish()
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     fun initGoalSpinners()

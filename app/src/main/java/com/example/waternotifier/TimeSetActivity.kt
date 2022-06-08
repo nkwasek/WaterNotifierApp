@@ -19,6 +19,7 @@ class TimeSetActivity : AppCompatActivity() {
         okButton.setOnClickListener{
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         val startTime = findViewById<TextView>(R.id.startTime)
@@ -47,4 +48,11 @@ class TimeSetActivity : AppCompatActivity() {
             TimePickerDialog(this, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
         }
     }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+    
 }

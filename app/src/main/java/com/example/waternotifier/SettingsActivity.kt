@@ -14,18 +14,29 @@ class SettingsActivity : AppCompatActivity() {
         goalButton.setOnClickListener {
             val intent = Intent(this, GoalActivity::class.java)
             startActivity(intent)
+            finish()
         }
+
         val timeSetButton = findViewById<Button>(R.id.daytimeChangeButton)
         timeSetButton.setOnClickListener {
             val intent = Intent(this, TimeSetActivity::class.java)
             startActivity(intent)
+            finish()
         }
-        val okButton = findViewById<Button>(R.id.goalOkButton)
+
+        val okButton = findViewById<Button>(R.id.settingsOkButton)
         okButton.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
 }
