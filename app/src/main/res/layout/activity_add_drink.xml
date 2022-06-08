@@ -59,7 +59,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:id="@+id/addDrinkCup">
 
                     <ImageView
                         android:id="@+id/icon_cup"
@@ -81,7 +82,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:id="@+id/addDrinkMug">
 
                     <ImageView
                         android:id="@+id/icon_mug"
@@ -103,7 +105,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:id="@+id/addDrinkBottle">
 
                     <ImageView
                         android:id="@+id/icon_bottle"
@@ -133,7 +136,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_column="1">
+                    android:layout_column="1"
+                    android:id="@+id/addDrinkOtherVolume">
 
                     <ImageView
                         android:id="@+id/icon_other_volume"
@@ -167,6 +171,7 @@
                     android:background="@drawable/rect_rad10_mid">
 
                     <EditText
+                        android:id="@+id/addDrinkEditTextVolumeValue"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType = "number"
@@ -226,7 +231,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:id="@+id/addDrinkWater">
 
                     <ImageView
                         android:id="@+id/icon_water"
@@ -248,7 +254,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:id="@+id/addDrinkJuice">
 
                     <ImageView
                         android:id="@+id/icon_juice"
@@ -270,7 +277,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:id="@+id/addDrinkTea">
 
                     <ImageView
                         android:id="@+id/icon_tea"
@@ -299,7 +307,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:id="@+id/addDrinkCoffee">
 
                     <ImageView
                         android:id="@+id/icon_coffee"
@@ -321,7 +330,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:id="@+id/addDrinkAlcohol">
 
                     <ImageView
                         android:id="@+id/icon_alcohol"
@@ -343,7 +353,8 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:id="@+id/addDrinkOtherDrink">
 
                     <ImageView
                         android:id="@+id/icon_other_type"
@@ -378,6 +389,7 @@
                     android:background="@drawable/rect_rad10_mid">
 
                     <EditText
+                        android:id="@+id/waterPercentage"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType = "number"
