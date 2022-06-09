@@ -176,6 +176,7 @@
                         android:layout_height="match_parent"
                         android:inputType = "number"
                         android:textSize="20dp"
+                        android:maxLength="4"
                         android:textAlignment="center"
                         android:backgroundTint="@color/transparent"
                         android:textColor="@color/text_color"/>
@@ -394,6 +395,7 @@
                         android:layout_height="match_parent"
                         android:inputType = "number"
                         android:textSize="20dp"
+                        android:maxLength="3"
                         android:textAlignment="center"
                         android:backgroundTint="@color/transparent"
                         android:textColor="@color/text_color"/>

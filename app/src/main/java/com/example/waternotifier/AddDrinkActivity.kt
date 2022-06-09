@@ -2,10 +2,15 @@ package com.example.waternotifier
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RelativeLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
 
 class AddDrinkActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,13 +19,65 @@ class AddDrinkActivity : AppCompatActivity() {
 
         val volumeValue = findViewById<EditText>(R.id.addDrinkEditTextVolumeValue)
         val waterPercentage = findViewById<EditText>(R.id.waterPercentage)
-
         val okButton = findViewById<Button>(R.id.addDrinkOkButton)
+
+        val text = "Empty values!"
+        val duration = Toast.LENGTH_SHORT
         okButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
         }
+
+        volumeValue.doAfterTextChanged {
+            if(volumeValue.text.toString() == "" || waterPercentage.text.toString() =="")
+            {
+                val text = "Empty values"
+                val duration = Toast.LENGTH_SHORT
+                okButton.setOnClickListener {
+                    val toast = Toast.makeText(applicationContext, text, duration)
+                    toast.show()
+                }
+            }
+            else {
+                okButton.setOnClickListener {
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+        }
+
+        waterPercentage.doAfterTextChanged {
+
+            if(volumeValue.text.toString() == "" || waterPercentage.text.toString() =="") {
+                val text = "Empty values"
+                val duration = Toast.LENGTH_SHORT
+                okButton.setOnClickListener {
+                    val toast = Toast.makeText(applicationContext, text, duration)
+                    toast.show()
+                }
+            }
+            else {
+                val percentage = Integer.parseInt(waterPercentage.text.toString());
+                if (percentage > 100) {
+                    val text = "Water percentage out of range [0-100]"
+                    val duration = Toast.LENGTH_SHORT
+                    okButton.setOnClickListener {
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+                    }
+                }
+                else {
+                    okButton.setOnClickListener {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            }
+
+        }
+
 
         val cup = findViewById<RelativeLayout>(R.id.addDrinkCup)
         cup.setOnClickListener {
@@ -73,6 +130,20 @@ class AddDrinkActivity : AppCompatActivity() {
         }
 
     }
+
+//    fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
+//        this.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//            }
+//
+//            override fun afterTextChanged(editable: Editable?) {
+//                afterTextChanged.invoke(editable.toString())
+//            }
+//        })
+//    }
 
     override fun onBackPressed() {
         val intent = Intent(this, MainActivity::class.java)
