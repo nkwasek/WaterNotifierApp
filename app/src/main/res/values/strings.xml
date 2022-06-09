@@ -4,7 +4,6 @@
         <item></item>
         <item>female</item>
         <item>male</item>
-        <item>other</item>
     </string-array>
 
     <string-array name="lifestyle_array">

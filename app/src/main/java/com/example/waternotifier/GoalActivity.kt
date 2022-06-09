@@ -58,6 +58,8 @@ class GoalActivity : AppCompatActivity() {
         finish()
     }
 
+
+
     fun initGoalSpinners()
     {
         val spinnerSex: Spinner = findViewById(R.id.spinner_sex)
