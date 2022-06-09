@@ -251,6 +251,7 @@
                 android:layout_span="2">
 
                 <TextView
+                    android:id="@+id/dailyWater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2000 ml"
@@ -271,22 +272,25 @@
                 android:paddingHorizontal="10dp">
 
                 <ImageButton
-                    android:id="@+id/minus_button"
+                    android:id="@+id/minusButton"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:background="@drawable/ic_minus"
+                    android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"/>
+                    android:background="@drawable/ic_minus" />
 
                 <SeekBar
                     android:id="@+id/seekBar"
+                    style="@style/MySeekBar"
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    style="@style/MySeekBar"/>
+                    android:progress="2000"
+                    android:max="5000"
+                    android:min="0"/>
 
                 <ImageButton
-                    android:id="@+id/plus_button"
+                    android:id="@+id/plusButton"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:background="@drawable/ic_plus"
