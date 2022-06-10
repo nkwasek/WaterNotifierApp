@@ -167,6 +167,13 @@ class GoalActivity : AppCompatActivity() {
             goal = weightInPounds * 15 / 28.3 * 29.5735
         }
 
+        if(sex == "female") {
+            goal *= Config.FEMALE_WATER_RATE
+        }
+        else if (sex == "male") {
+            goal *= Config.MALE_WATER_RATE
+        }
+
         if (lifestyle == "active") {
             goal += Config.ACTIVITY_BONUS
         }

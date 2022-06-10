@@ -4,8 +4,8 @@ object Config {
     // source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2908954/
     // source: https://www.umsystem.edu/totalrewards/wellness/how-to-calculate-how-much-water-you-should-drink
 
-    const val WOMAN_WATER_DEMAND = 2000
-    const val MAN_WATER_DEMAND = 2300
+    const val FEMALE_WATER_RATE = 0.9
+    const val MALE_WATER_RATE = 1.1
 
     const val ACTIVITY_BONUS = 700
     const val PASSIVE_MINUS = 300
