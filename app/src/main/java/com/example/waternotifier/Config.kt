@@ -23,4 +23,5 @@ object Config {
     const val TEA_PERCENTAGE = 60
     const val ALCOHOL_PERCENTAGE = 0
 
+    const val MAX_VOLUME = 5000
 }

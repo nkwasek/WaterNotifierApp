@@ -13,7 +13,7 @@ import kotlin.math.roundToInt
 import kotlin.collections.List as List
 
 class GoalActivity : AppCompatActivity() {
-
+    var dailyValue = 0
 //    private val okButton = findViewById<Button>(R.id.goalOkButton)
 //    private val seekBar = findViewById<SeekBar>(R.id.seekBar)
 //    private val minusButton = findViewById<ImageButton>(R.id.minusButton)
@@ -32,7 +32,7 @@ class GoalActivity : AppCompatActivity() {
         initGoalSpinners()
 
         val okButton = findViewById<Button>(R.id.goalOkButton)
-        val seekBar = findViewById<SeekBar>(R.id.seekBar)
+
         val minusButton = findViewById<ImageButton>(R.id.minusButton)
         val plusButton = findViewById<ImageButton>(R.id.plusButton)
         val dailyGoal = findViewById<TextView>(R.id.dailyGoal)
@@ -42,10 +42,10 @@ class GoalActivity : AppCompatActivity() {
         val ageEditText = findViewById<EditText>(R.id.editAge)
         val sexSpinner = findViewById<Spinner>(R.id.spinnerSex)
         val lifestyleSpinner = findViewById<Spinner>(R.id.spinnerLifestyle)
-
+        val seekBar = findViewById<SeekBar>(R.id.seekBar)
         dailyGoal.text = LocalVariables.Goal.toString()  + " ml";
 
-        var dailyValue = Integer.parseInt(dailyGoal.text.split(' ')[0])
+        dailyValue = Integer.parseInt(dailyGoal.text.split(' ')[0])
 
         okButton.setOnClickListener{
             LocalVariables.Goal = Integer.parseInt(dailyGoal.text.split(' ')[0])
@@ -68,7 +68,7 @@ class GoalActivity : AppCompatActivity() {
         }
 
         plusButton.setOnClickListener{
-            if (dailyValue>4900) dailyValue=5000 else dailyValue+=100
+            if (dailyValue>Config.MAX_VOLUME-100) dailyValue=Config.MAX_VOLUME else dailyValue+=100
             seekBar.setProgress(dailyValue)
             dailyGoal.text = dailyValue.toString() + " ml"
         }
@@ -114,10 +114,13 @@ class GoalActivity : AppCompatActivity() {
     fun afterTextChangedActions() {
         val calculateButton = findViewById<Button>(R.id.calculateButton)
         val dailyGoal = findViewById<TextView>(R.id.dailyGoal)
+        val seekBar = findViewById<SeekBar>(R.id.seekBar)
 
         if (checkIfValuesNotEmpty()) {
             calculateButton.setOnClickListener {
-                dailyGoal.text = (calculateGoal().toString()) + " ml"
+                if (calculateGoal()>Config.MAX_VOLUME) dailyValue=Config.MAX_VOLUME else dailyValue=calculateGoal()
+                seekBar.setProgress(dailyValue)
+                dailyGoal.text = dailyValue.toString() + " ml"
             }
         }
         else {
