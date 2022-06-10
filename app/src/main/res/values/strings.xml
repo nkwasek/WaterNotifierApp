@@ -12,4 +12,6 @@
         <item>passive</item>
         <item>medium</item>
     </string-array>
+    <string name="goal_achieved">GOAL ACHIEVED!</string>
+    <string name="goal_not_achieved">GOAL NOT ACHIEVED</string>
 </resources>

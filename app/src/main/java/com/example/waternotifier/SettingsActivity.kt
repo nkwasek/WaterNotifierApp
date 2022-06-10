@@ -4,13 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+        val goalValue = findViewById<TextView>(R.id.goalSettingsTextview)
         val goalButton = findViewById<Button>(R.id.goalChangeButton)
+
+        goalValue.text = LocalVariables.Goal.toString() + " ml"
+
         goalButton.setOnClickListener {
             val intent = Intent(this, GoalActivity::class.java)
             startActivity(intent)

@@ -46,23 +46,23 @@
 
         <TableRow>
             <TextView
+                android:id="@+id/progressTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:fontFamily="@font/poppins_black"
                 android:textSize="26dp"
-                android:text="0 / 2000 ml"
                 android:gravity="center"/>
         </TableRow>
 
         <TableRow>
             <TextView
+                android:id="@+id/achievementTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:fontFamily="@font/poppins_black"
                 android:textSize="23dp"
-                android:text="GOAL NOT ACHIEVED"
                 android:gravity="center"/>
         </TableRow>
 

@@ -46,7 +46,7 @@
 
         <TableRow>
             <TextView
-                android:id="@+id/textview_goal"
+                android:id="@+id/goalSettingsTextview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
