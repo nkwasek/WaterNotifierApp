@@ -3,41 +3,34 @@ package com.example.waternotifier
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var mAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        val progress = findViewById<TextView>(R.id.progressTextView)
-        val achievement = findViewById<TextView>(R.id.achievementTextView)
-        val settingsButton = findViewById<ImageButton>(R.id.settingsButton)
-        val addDrinkButton = findViewById<ImageButton>(R.id.addDrinkButton)
+        setContentView(R.layout.activity_loading_screen)
 
-        progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        if(LocalVariables.Progress < LocalVariables.Goal) {
-            achievement.text = getString(R.string.goal_not_achieved)
-        }
-        else {
-            achievement.text = getString(R.string.goal_achieved)
-        }
+        mAuth = FirebaseAuth.getInstance()
+        val user = mAuth.currentUser
 
-        settingsButton.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
-        addDrinkButton.setOnClickListener {
-            val intent = Intent(this, AddDrinkActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+        Handler().postDelayed({
+            if(user != null)  {
+                val intent = Intent(this, DashboardActivity::class.java)
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+        }, 2000)
 
 
     }

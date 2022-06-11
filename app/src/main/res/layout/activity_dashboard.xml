@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="center"/>
+
+
+    <ImageButton
+        android:id="@+id/settingsButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_settings"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"/>
+
+    <TableLayout
+        android:id="@+id/progress_tablelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect_rad10_trans"
+        android:layout_marginHorizontal="30dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="15dp"
+        android:layout_below="@id/settingsButton"
+        android:shrinkColumns="0"
+        android:stretchColumns="0">
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Today's progress"
+                android:textSize="28dp"
+                android:textAlignment="center"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/progressTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_black"
+                android:textSize="26dp"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/achievementTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:fontFamily="@font/poppins_black"
+                android:textSize="23dp"
+                android:gravity="center"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <ImageButton
+        android:id="@+id/addDrinkButton"
+        android:layout_below="@id/progress_tablelayout"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/ic_add"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:background="@color/transparent"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/addDrinkTextView"
+        android:layout_below="@id/addDrinkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add drink"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        />
+
+    <RelativeLayout
+        android:layout_below="@id/addDrinkTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rect_rad10_trans"
+        android:paddingTop="10dp"
+        android:layout_margin="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Statistics"
+            android:textSize="25dp"
+            android:textAlignment="center"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

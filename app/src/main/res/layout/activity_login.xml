@@ -43,16 +43,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/rect_rad40_white"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="150dp"
             android:layout_below="@id/textView"
             android:layout_centerHorizontal="true">
+
             <Button
-                android:id="@+id/imageButton"
+                android:id="@+id/signInButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
                 android:text="Sign in with Google"
-                android:textColor="@color/text_color"
-                android:background="#00FFFFFF" />
+                android:textColor="@color/text_color" />
         </RelativeLayout>
 
 

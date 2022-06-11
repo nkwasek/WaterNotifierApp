@@ -43,7 +43,7 @@ class AddDrinkActivity : AppCompatActivity() {
                     val result = volume * hydration / 100
 
                     LocalVariables.Progress += result.toInt()
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, DashboardActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
@@ -79,7 +79,7 @@ class AddDrinkActivity : AppCompatActivity() {
 
                         LocalVariables.Progress += result.toInt()
 
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, DashboardActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
@@ -142,7 +142,7 @@ class AddDrinkActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
         finish()
     }
