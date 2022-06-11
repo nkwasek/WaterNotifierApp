@@ -14,17 +14,6 @@ import kotlin.collections.List as List
 
 class GoalActivity : AppCompatActivity() {
     var dailyValue = 0
-//    private val okButton = findViewById<Button>(R.id.goalOkButton)
-//    private val seekBar = findViewById<SeekBar>(R.id.seekBar)
-//    private val minusButton = findViewById<ImageButton>(R.id.minusButton)
-//    private val plusButton = findViewById<ImageButton>(R.id.plusButton)
-//    private val dailyGoal = findViewById<TextView>(R.id.dailyGoal)
-//    private val calculateButton = findViewById<Button>(R.id.calculateButton)
-//
-//    private val weightEditText = findViewById<EditText>(R.id.editWeight)
-//    private val ageEditText = findViewById<EditText>(R.id.editAge)
-//    private val sexSpinner = findViewById<Spinner>(R.id.spinnerSex)
-//    private val lifestyleSpinner = findViewById<Spinner>(R.id.spinnerLifestyle)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +64,7 @@ class GoalActivity : AppCompatActivity() {
 
         seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seek: SeekBar, progress: Int, fromUser: Boolean) {
-                    dailyValue = progress
+                    dailyValue = progress / Config.PROGRESS_SEEKBAR * Config.PROGRESS_SEEKBAR
                     dailyGoal.text = dailyValue.toString() + " ml"
                 }
 
@@ -87,10 +76,6 @@ class GoalActivity : AppCompatActivity() {
         }
         )
 
-
-//        for (value in values) {
-//            if (value == "")  notEmmpty = false
-//        }
 
         weightEditText.doAfterTextChanged { afterTextChangedActions() }
         ageEditText.doAfterTextChanged { afterTextChangedActions() }

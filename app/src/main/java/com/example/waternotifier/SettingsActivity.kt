@@ -13,8 +13,13 @@ class SettingsActivity : AppCompatActivity() {
 
         val goalValue = findViewById<TextView>(R.id.goalSettingsTextview)
         val goalButton = findViewById<Button>(R.id.goalChangeButton)
+        val dayStart = findViewById<TextView>(R.id.settingsDayStart)
+        val dayStop = findViewById<TextView>(R.id.settingsDayEnd)
 
         goalValue.text = LocalVariables.Goal.toString() + " ml"
+        dayStart.text = LocalVariables.DayStart.toString()
+        dayStop.text = LocalVariables.DayEnd.toString()
+
 
         goalButton.setOnClickListener {
             val intent = Intent(this, GoalActivity::class.java)

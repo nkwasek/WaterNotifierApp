@@ -187,13 +187,11 @@
                 android:paddingBottom="15dp"/>
 
             <TextView
-                android:id="@+id/day_start"
+                android:id="@+id/settingsDayStart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:textSize="23dp"
-                android:text="9:00 AM"
-                android:gravity="center"
+                android:gravity="right"
                 android:paddingBottom="15dp"/>
         </TableRow>
 
@@ -208,13 +206,11 @@
                 android:paddingBottom="15dp"/>
 
             <TextView
-                android:id="@+id/day_end"
+                android:id="@+id/settingsDayEnd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:textSize="23dp"
-                android:text="2:00 AM"
-                android:gravity="center"
+                android:gravity="right"
                 android:paddingBottom="15dp"/>
         </TableRow>
 
