@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 
 class AddDrinkActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_drink)
@@ -140,6 +142,7 @@ class AddDrinkActivity : AppCompatActivity() {
         }
 
     }
+
 
     override fun onBackPressed() {
         val intent = Intent(this, DashboardActivity::class.java)

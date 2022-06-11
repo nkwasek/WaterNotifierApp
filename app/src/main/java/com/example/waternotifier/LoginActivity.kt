@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         }
     }
-    
+
     override fun onStart() {
         super.onStart()
         val user = FirebaseAuth.getInstance().currentUser

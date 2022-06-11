@@ -20,7 +20,18 @@
         android:background="@color/transparent"
         android:scaleType="fitXY"
         android:layout_alignParentRight="true"
-        android:layout_margin="20dp"/>
+        android:layout_marginVertical="20dp"
+        android:layout_marginRight="80dp"/>
+
+    <ImageButton
+        android:id="@+id/signOutButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_baseline_logout"
+        android:background="@color/transparent"
+        android:scaleType="fitXY"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp" />
 
     <TableLayout
         android:id="@+id/progress_tablelayout"
@@ -91,19 +102,22 @@
         />
 
     <RelativeLayout
-        android:layout_below="@id/addDrinkTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/addDrinkTextView"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/rect_rad10_trans"
-        android:paddingTop="10dp"
-        android:layout_margin="30dp">
+        android:paddingTop="10dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Statistics"
-            android:textSize="25dp"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="25dp" />
 
     </RelativeLayout>
 
