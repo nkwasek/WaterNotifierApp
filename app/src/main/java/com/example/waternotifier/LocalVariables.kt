@@ -5,5 +5,4 @@ object LocalVariables {
     var Progress = 0
     var DayStart = "6:00"
     var DayEnd = "24:00"
-
 }

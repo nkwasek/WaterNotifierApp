@@ -8,9 +8,16 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.util.*
 
 class AddDrinkActivity : AppCompatActivity() {
 
+    private val db = Firebase.firestore
+    private val uid = Firebase.auth.currentUser?.uid.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +52,9 @@ class AddDrinkActivity : AppCompatActivity() {
                     val result = volume * hydration / 100
 
                     LocalVariables.Progress += result.toInt()
+
+                    writeData()
+
                     val intent = Intent(this, DashboardActivity::class.java)
                     startActivity(intent)
                     finish()
@@ -80,6 +90,8 @@ class AddDrinkActivity : AppCompatActivity() {
                         val result = volume * hydration / 100
 
                         LocalVariables.Progress += result.toInt()
+
+                        writeData()
 
                         val intent = Intent(this, DashboardActivity::class.java)
                         startActivity(intent)
@@ -143,6 +155,17 @@ class AddDrinkActivity : AppCompatActivity() {
 
     }
 
+    fun writeData() {
+        val data = hashMapOf(
+            "day_start" to LocalVariables.DayStart,
+            "day_end" to LocalVariables.DayEnd,
+            "goal" to LocalVariables.Goal,
+            "progress" to LocalVariables.Progress,
+        )
+
+        db.collection(uid).document(Calendar.DAY_OF_WEEK.toString())
+            .set(data, SetOptions.merge())
+    }
 
     override fun onBackPressed() {
         val intent = Intent(this, DashboardActivity::class.java)

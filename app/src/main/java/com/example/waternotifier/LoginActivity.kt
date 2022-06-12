@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_login)
         auth = FirebaseAuth.getInstance()
         initializeUI()
@@ -33,16 +34,6 @@ class LoginActivity : AppCompatActivity() {
     companion object {
         fun getLaunchIntent(from: Context) = Intent(from, LoginActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val user = FirebaseAuth.getInstance().currentUser
-        if (user != null) {
-            val intent = Intent(this, DashboardActivity::class.java)
-            startActivity(intent)
-            finish()
         }
     }
 
@@ -56,7 +47,6 @@ class LoginActivity : AppCompatActivity() {
     private fun login() {
         val loginIntent: Intent = signInClient.signInIntent
         startActivityForResult(loginIntent, RC_SIGN_IN)
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -69,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
                     googleFirebaseAuth(account)
                 }
             } catch (e: ApiException) {
-                Toast.makeText(this, "Google sign in failed:(", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Google sign in failed :(", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -78,7 +68,6 @@ class LoginActivity : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
-
                 val intent = Intent(this, DashboardActivity::class.java)
                 startActivity(intent)
             } else {

@@ -242,14 +242,15 @@
         android:background="@drawable/rect_rad40_white"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="25dp">
+
         <Button
             android:id="@+id/settingsOkButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
             android:text="OK"
-            android:textSize="21dp"
             android:textColor="@color/grey_dark"
-            android:background="#00FFFFFF" />
+            android:textSize="21dp" />
     </RelativeLayout>
 </RelativeLayout>

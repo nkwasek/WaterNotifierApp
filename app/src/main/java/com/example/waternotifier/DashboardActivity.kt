@@ -13,6 +13,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.type.DayOfWeek
+import com.google.type.DayOfWeekProto
+import java.util.*
 
 
 class DashboardActivity : AppCompatActivity() {
@@ -25,15 +28,14 @@ class DashboardActivity : AppCompatActivity() {
 
         readData()
 
-        writeData()
-
         setContentView(R.layout.activity_dashboard)
 
         val progress = findViewById<TextView>(R.id.progressTextView)
         val achievement = findViewById<TextView>(R.id.achievementTextView)
         val settingsButton = findViewById<ImageButton>(R.id.settingsButton)
         val addDrinkButton = findViewById<ImageButton>(R.id.addDrinkButton)
-        var signOutButton = findViewById<ImageButton>(R.id.signOutButton)
+        val signOutButton = findViewById<ImageButton>(R.id.signOutButton)
+        val resetButton = findViewById<Button>(R.id.resetButton)
 
 
         if(LocalVariables.Progress < LocalVariables.Goal) {
@@ -61,46 +63,48 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        resetButton.setOnClickListener {
+            LocalVariables.Progress = 0
+            progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
+            writeData()
+        }
+    }
+
+    fun writeData() {
+        val data = hashMapOf(
+            "day_start" to LocalVariables.DayStart,
+            "day_end" to LocalVariables.DayEnd,
+            "goal" to LocalVariables.Goal,
+            "progress" to LocalVariables.Progress,
+        )
+
+        db.collection(uid).document(Calendar.DAY_OF_WEEK.toString())
+            .set(data, SetOptions.merge())
     }
 
     fun readData() {
-        db.collection("events")
-            .whereEqualTo("uid", this.uid)
+        db.collection(uid.toString())
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     Log.d(TAG, "${document.id} => ${document.data}")
                 }
                 val progress = findViewById<TextView>(R.id.progressTextView)
-                if(documents.count()>0){
+
+                if(documents.count() > 0) {
                     LocalVariables.Progress = Integer.parseInt(documents.last().data.get("progress").toString())
                     LocalVariables.Goal = Integer.parseInt(documents.last().data.get("goal").toString())
                     progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
                 }
                 else{
-//                    LocalVariables.Progress = 0
-//                    LocalVariables.Goal = 2000
-//                    progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
+                    progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
                 }
 
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
-    }
-
-    fun writeData() {
-        val data = hashMapOf(
-            "date" to "11.06.2022",
-            "start" to "10:00",
-            "end" to "1:00",
-            "goal" to 7312,
-            "progress" to 7,
-            "uid" to "ORXeYhBX7RhXv1uJngd7QQdryKo2"
-        )
-
-        db.collection("events").document("ORXeYhBX7RhXv1uJngd7QQdryKo2")
-            .set(data, SetOptions.merge())
     }
 }
 

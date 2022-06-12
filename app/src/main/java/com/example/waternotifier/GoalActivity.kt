@@ -7,6 +7,11 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.util.*
 import kotlin.math.round
 import java.util.Collections.list
 import kotlin.math.roundToInt
@@ -14,6 +19,8 @@ import kotlin.collections.List as List
 
 class GoalActivity : AppCompatActivity() {
     var dailyValue = 0
+    private val db = Firebase.firestore
+    private val uid = Firebase.auth.currentUser?.uid.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +45,9 @@ class GoalActivity : AppCompatActivity() {
 
         okButton.setOnClickListener{
             LocalVariables.Goal = Integer.parseInt(dailyGoal.text.split(' ')[0])
+
+            writeData()
+
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
             finish()
@@ -75,7 +85,6 @@ class GoalActivity : AppCompatActivity() {
             }
         }
         )
-
 
         weightEditText.doAfterTextChanged { afterTextChangedActions() }
         ageEditText.doAfterTextChanged { afterTextChangedActions() }
@@ -176,6 +185,18 @@ class GoalActivity : AppCompatActivity() {
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    fun writeData() {
+        val data = hashMapOf(
+            "day_start" to LocalVariables.DayStart,
+            "day_end" to LocalVariables.DayEnd,
+            "goal" to LocalVariables.Goal,
+            "progress" to LocalVariables.Progress,
+        )
+
+        db.collection(uid).document(Calendar.DAY_OF_WEEK.toString())
+            .set(data, SetOptions.merge())
     }
 
     fun initGoalSpinners()

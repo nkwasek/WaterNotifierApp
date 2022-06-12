@@ -7,9 +7,17 @@ import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class TimeSetActivity : AppCompatActivity() {
+
+    private val db = Firebase.firestore
+    private val uid = Firebase.auth.currentUser?.uid.toString()
+
     override fun onCreate(savedInstanceState: Bundle?){
 
         super.onCreate(savedInstanceState)
@@ -25,6 +33,7 @@ class TimeSetActivity : AppCompatActivity() {
         okButton.setOnClickListener{
             LocalVariables.DayStart = startTime.text.toString()
             LocalVariables.DayEnd = stopTime.text.toString()
+            writeData()
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
             finish()
@@ -52,6 +61,18 @@ class TimeSetActivity : AppCompatActivity() {
                 stopTime.setText(textTime)}
             TimePickerDialog(this, R.style.TimePickerTheme, timeSetListener, cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE), true).show()
         }
+    }
+
+    fun writeData() {
+        val data = hashMapOf(
+            "day_start" to LocalVariables.DayStart,
+            "day_end" to LocalVariables.DayEnd,
+            "goal" to LocalVariables.Goal,
+            "progress" to LocalVariables.Progress,
+        )
+
+        db.collection(uid).document(Calendar.DAY_OF_WEEK.toString())
+            .set(data, SetOptions.merge())
     }
 
     override fun onBackPressed() {
