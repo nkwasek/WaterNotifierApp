@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -23,6 +24,8 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         readData()
+
+        writeData()
 
         setContentView(R.layout.activity_dashboard)
 
@@ -68,14 +71,36 @@ class DashboardActivity : AppCompatActivity() {
                 for (document in documents) {
                     Log.d(TAG, "${document.id} => ${document.data}")
                 }
-                LocalVariables.Progress = Integer.parseInt(documents.last().data.get("progress").toString())
-                LocalVariables.Goal = Integer.parseInt(documents.last().data.get("goal").toString())
                 val progress = findViewById<TextView>(R.id.progressTextView)
-                progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
+                if(documents.count()>0){
+                    LocalVariables.Progress = Integer.parseInt(documents.last().data.get("progress").toString())
+                    LocalVariables.Goal = Integer.parseInt(documents.last().data.get("goal").toString())
+                    progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
+                }
+                else{
+//                    LocalVariables.Progress = 0
+//                    LocalVariables.Goal = 2000
+//                    progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
+                }
+
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
+    }
+
+    fun writeData() {
+        val data = hashMapOf(
+            "date" to "11.06.2022",
+            "start" to "10:00",
+            "end" to "1:00",
+            "goal" to 7312,
+            "progress" to 7,
+            "uid" to "ORXeYhBX7RhXv1uJngd7QQdryKo2"
+        )
+
+        db.collection("events").document("ORXeYhBX7RhXv1uJngd7QQdryKo2")
+            .set(data, SetOptions.merge())
     }
 }
 
