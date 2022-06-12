@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WaterNotifier">
         <activity
+            android:launchMode = "singleTop"
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:launchMode = "singleTop"
             android:name=".DashboardActivity"
             android:exported="false" />
         <activity
@@ -31,6 +33,7 @@
             android:name=".TimeSetActivity"
             android:exported="false" />
         <activity
+            android:launchMode = "singleTop"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
