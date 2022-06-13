@@ -122,11 +122,26 @@
         android:paddingTop="10dp">
 
         <TextView
+            android:id="@+id/statisticsTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Statistics"
             android:textAlignment="center"
             android:textSize="25dp" />
+
+        <RelativeLayout
+            android:id="@+id/chartContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/statisticsTextView"
+            android:layout_margin="15dp">
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/barChart"/>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

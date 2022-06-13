@@ -2,12 +2,12 @@ package com.example.waternotifier
 
 import android.content.ContentValues.TAG
 import android.content.Intent
+import android.graphics.Color.BLACK
+import android.graphics.Color.rgb
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.SetOptions
@@ -17,6 +17,17 @@ import com.google.type.DayOfWeek
 import com.google.type.DayOfWeekProto
 import java.text.SimpleDateFormat
 import java.util.*
+import android.graphics.Color
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.formatter.IAxisValueFormatter
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.formatter.ValueFormatter
+import io.grpc.Context
+import kotlin.collections.ArrayList
 
 
 class DashboardActivity : AppCompatActivity() {
@@ -32,7 +43,7 @@ class DashboardActivity : AppCompatActivity() {
 
         readData()
 
-        Log.w(TAG, now())
+        //Log.w(TAG, Config.WEEK_DAYS.toString())
 
         setContentView(R.layout.activity_dashboard)
 
@@ -91,6 +102,9 @@ class DashboardActivity : AppCompatActivity() {
 
 
     fun readData() {
+        LocalVariables.xAxis.clear()
+        LocalVariables.goals.clear()
+        LocalVariables.progress.clear()
 
         db.collection(uid.toString())
             .get()
@@ -118,6 +132,11 @@ class DashboardActivity : AppCompatActivity() {
                     }
 
                     for (document in documents) {
+//                        var index = Integer.parseInt(document.id) - 1
+//
+//                        LocalVariables.progress.add(document.data.get("progress").toString().toFloat())
+//                        LocalVariables.goals.add(document.data.get("goal").toString().toFloat())
+
                         if (document.id == LocalVariables.Today.toString()) {
                             LocalVariables.DayStart = document.data.get("day_start").toString()
                             LocalVariables.DayEnd = document.data.get("day_end").toString()
@@ -125,13 +144,124 @@ class DashboardActivity : AppCompatActivity() {
                             LocalVariables.Goal = Integer.parseInt(document.data.get("goal").toString())
                         }
                     }
+
+                    for (i in 6 downTo 1 step 1) {
+                        var ifFound = false
+                        if (LocalVariables.Today - i > 1) {
+                            for (document in documents) {
+                                if (document.id.toString() == (LocalVariables.Today - i).toString()) {
+                                    LocalVariables.progress.add(
+                                        document.data.get("progress").toString().toFloat()
+                                    )
+                                    LocalVariables.goals.add(
+                                        document.data.get("goal").toString().toFloat()
+                                    )
+                                    ifFound = true
+                                    break
+                                }
+                            }
+                            if(!ifFound) {
+                                LocalVariables.progress.add(0f)
+                                LocalVariables.goals.add(0f)
+                            }
+                        }
+                        else {
+                            var ifFound = false
+
+                            for (document in documents) {
+                                if (document.id.toString() == (7 - i + 1).toString()) {
+                                    LocalVariables.progress.add(
+                                        document.data.get("progress").toString().toFloat()
+                                    )
+                                    LocalVariables.goals.add(
+                                        document.data.get("goal").toString().toFloat()
+                                    )
+                                    ifFound = true
+                                    break
+                                }
+                            }
+                            if(!ifFound) {
+                                LocalVariables.progress.add(0f)
+                                LocalVariables.goals.add(0f)
+                            }
+                        }
+                        LocalVariables.goals.add(LocalVariables.Goal.toFloat())
+                        LocalVariables.progress.add(LocalVariables.Progress.toFloat())
+                    }
                 }
                 progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
+                fillXAxis()
+                plotChart()
+                Log.w(TAG, LocalVariables.xAxis.toString())
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
     }
+
+    fun plotChart() {
+
+        val container = findViewById<RelativeLayout>(R.id.chartContainer)
+        val barChart = findViewById<BarChart>(R.id.barChart)
+
+        val values = ArrayList<Float>()
+        values.add(4f)
+        values.add(5f)
+        values.add(2f)
+        values.add(3f)
+        values.add(2f)
+        values.add(2f)
+        values.add(2f)
+
+        setBarChart(LocalVariables.progress, LocalVariables.xAxis as ArrayList<String>)
+//
+//        val barDataSet = BarDataSet(values, "Water [ml]")
+//        val data = BarData(barDataSet, barDataSet)
+//
+////        barChart.xAxis = LocalVariables.xAxis
+//
+//        barChart.background = resources.getDrawable(R.drawable.rect_rad10_mid)
+//        //barChart.animateXY(3000, 3000)
+
+    }
+
+    private fun setBarChart(votes: ArrayList<Float>, xAxisLabels: ArrayList<String>) {
+        val barChart = findViewById<BarChart>(R.id.barChart)
+        val entries = ArrayList<BarEntry>()
+        val colors = ArrayList<Int>()
+
+        var it = 0f
+
+        votes.forEach { vote ->
+            entries.add(BarEntry(it, vote))
+            colors.add(Color.GRAY)
+            it++
+        }
+        val barDataSet = BarDataSet(entries, "")
+        barDataSet.valueTextSize = 14f
+        val data = BarData(barDataSet)
+        barChart.data = data
+        barChart.xAxis.valueFormatter = IndexAxisValueFormatter(xAxisLabels)
+        barChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+        barChart.xAxis.textSize = 12f
+        barChart.axisLeft.textSize = 12f
+        barDataSet.colors = colors
+        barChart.axisRight.isEnabled = false
+        barChart.description.isEnabled = false
+        barChart.setVisibleXRangeMaximum(5f)
+        barChart.xAxis.labelCount = votes.size
+        barChart.xAxis.xOffset = 15f
+        barChart.xAxis.granularity = 1f
+        barChart.xAxis.setDrawLabels(true)
+        barChart.xAxis.spaceMin = 5f
+        barChart.xAxis.spaceMax = 25f
+        barChart.moveViewToX((votes.size / 2).toFloat())
+        barChart.setPinchZoom(true)
+        barChart.invalidate()
+        barChart.animateY(2000)
+    }
+
+
 
     fun now(): String {
         return SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
@@ -164,6 +294,16 @@ class DashboardActivity : AppCompatActivity() {
             return true
         }
         return false
+    }
+
+    fun fillXAxis() {
+
+        var start = LocalVariables.Today
+        if(LocalVariables.Today == 1) start = 1
+
+        for (i in 0..6) {
+            LocalVariables.xAxis.add(Config.WEEK_DAYS[(7 + start + i) % 7]);
+        }
     }
 }
 

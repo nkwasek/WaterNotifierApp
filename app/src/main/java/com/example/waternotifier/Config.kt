@@ -23,4 +23,6 @@ object Config {
 
     const val MAX_VOLUME = 5000
     const val PROGRESS_SEEKBAR = 100
+
+    val WEEK_DAYS = listOf<String>("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
 }

@@ -1,6 +1,7 @@
 package com.example.waternotifier
 
 import java.util.*
+import kotlin.collections.ArrayList
 
 object LocalVariables {
     var Goal = 2000
@@ -11,6 +12,9 @@ object LocalVariables {
 
     var Today = Calendar.DAY_OF_WEEK
     var Yesterday = Today - 1
-    var YesterdayProgress = 0
+
+    val xAxis = mutableListOf<String>()
+    val goals = ArrayList<Float>()
+    val progress = ArrayList<Float>()
 
 }
