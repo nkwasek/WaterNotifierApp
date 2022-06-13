@@ -53,25 +53,5 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun readData() {
-        db.collection(uid.toString())
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
-                }
-                val progress = findViewById<TextView>(R.id.progressTextView)
-
-                if(documents.count() > 0) {
-                    LocalVariables.Progress = Integer.parseInt(documents.last().data.get("progress").toString())
-                    LocalVariables.Goal = Integer.parseInt(documents.last().data.get("goal").toString())
-                }
-
-            }
-            .addOnFailureListener { exception ->
-                Log.w(ContentValues.TAG, "Error getting documents: ", exception)
-            }
-    }
-
 
 }

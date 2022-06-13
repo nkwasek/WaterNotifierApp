@@ -102,8 +102,6 @@ class DashboardActivity : AppCompatActivity() {
 
                 numberOfDocuments = documents.count()
 
-                Log.d(TAG, "Before: " + numberOfDocuments.toString())
-
                 if(numberOfDocuments > 0) {
 
                     for (document in documents) {
@@ -128,14 +126,11 @@ class DashboardActivity : AppCompatActivity() {
                         }
                     }
                 }
-
                 progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
-
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
-
     }
 
     fun now(): String {
