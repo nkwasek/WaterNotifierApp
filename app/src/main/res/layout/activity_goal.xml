@@ -302,7 +302,7 @@
         android:background="@drawable/rect_rad40_white"
         android:layout_below="@id/table_layout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="25dp">
 
         <Button
             android:id="@+id/goalOkButton"
