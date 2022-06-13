@@ -106,6 +106,7 @@ class DashboardActivity : AppCompatActivity() {
         LocalVariables.goals.clear()
         LocalVariables.progress.clear()
 
+
         db.collection(uid.toString())
             .get()
             .addOnSuccessListener { documents ->
@@ -114,9 +115,9 @@ class DashboardActivity : AppCompatActivity() {
                 }
                 val progress = findViewById<TextView>(R.id.progressTextView)
 
-                numberOfDocuments = documents.count()
+                //numberOfDocuments = documents.count()
 
-                if(numberOfDocuments > 0) {
+                if(documents.count() > 0) {
 
                     for (document in documents) {
                         if (document.id == LocalVariables.Today.toString()) {
@@ -130,6 +131,7 @@ class DashboardActivity : AppCompatActivity() {
                     if (ifPreviousDay()) {
                         LocalVariables.Today = LocalVariables.Yesterday
                     }
+                    fillXAxis()
 
                     for (document in documents) {
 //                        var index = Integer.parseInt(document.id) - 1
@@ -145,52 +147,19 @@ class DashboardActivity : AppCompatActivity() {
                         }
                     }
 
-                    for (i in 6 downTo 1 step 1) {
-                        var ifFound = false
-                        if (LocalVariables.Today - i > 1) {
-                            for (document in documents) {
-                                if (document.id.toString() == (LocalVariables.Today - i).toString()) {
-                                    LocalVariables.progress.add(
-                                        document.data.get("progress").toString().toFloat()
-                                    )
-                                    LocalVariables.goals.add(
-                                        document.data.get("goal").toString().toFloat()
-                                    )
-                                    ifFound = true
-                                    break
-                                }
-                            }
-                            if(!ifFound) {
-                                LocalVariables.progress.add(0f)
-                                LocalVariables.goals.add(0f)
-                            }
-                        }
-                        else {
-                            var ifFound = false
+                    var start = LocalVariables.Today
+                    if(LocalVariables.Today == 1) start = 1
 
-                            for (document in documents) {
-                                if (document.id.toString() == (7 - i + 1).toString()) {
-                                    LocalVariables.progress.add(
-                                        document.data.get("progress").toString().toFloat()
-                                    )
-                                    LocalVariables.goals.add(
-                                        document.data.get("goal").toString().toFloat()
-                                    )
-                                    ifFound = true
-                                    break
-                                }
-                            }
-                            if(!ifFound) {
-                                LocalVariables.progress.add(0f)
-                                LocalVariables.goals.add(0f)
+                    for (i in 0..6) {
+                        for (document in documents) {
+                            if (document.id.toInt() == (7 + start + i) % 7) {
+                                LocalVariables.progress.add((7 + start + i) % 7, document.data.get("progress").toString().toFloat())
                             }
                         }
-                        LocalVariables.goals.add(LocalVariables.Goal.toFloat())
-                        LocalVariables.progress.add(LocalVariables.Progress.toFloat())
+                        
                     }
                 }
                 progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
-                fillXAxis()
                 plotChart()
                 Log.w(TAG, LocalVariables.xAxis.toString())
             }
@@ -213,7 +182,7 @@ class DashboardActivity : AppCompatActivity() {
         values.add(2f)
         values.add(2f)
 
-        setBarChart(LocalVariables.progress, LocalVariables.xAxis as ArrayList<String>)
+        setBarChart(LocalVariables.progress as ArrayList<Float>, LocalVariables.xAxis as ArrayList<String>)
 //
 //        val barDataSet = BarDataSet(values, "Water [ml]")
 //        val data = BarData(barDataSet, barDataSet)
@@ -225,14 +194,14 @@ class DashboardActivity : AppCompatActivity() {
 
     }
 
-    private fun setBarChart(votes: ArrayList<Float>, xAxisLabels: ArrayList<String>) {
+    private fun setBarChart(values: ArrayList<Float>, xAxisLabels: ArrayList<String>) {
         val barChart = findViewById<BarChart>(R.id.barChart)
         val entries = ArrayList<BarEntry>()
         val colors = ArrayList<Int>()
 
         var it = 0f
 
-        votes.forEach { vote ->
+        values.forEach { vote ->
             entries.add(BarEntry(it, vote))
             colors.add(Color.GRAY)
             it++
@@ -249,13 +218,13 @@ class DashboardActivity : AppCompatActivity() {
         barChart.axisRight.isEnabled = false
         barChart.description.isEnabled = false
         barChart.setVisibleXRangeMaximum(5f)
-        barChart.xAxis.labelCount = votes.size
+        barChart.xAxis.labelCount = values.size
         barChart.xAxis.xOffset = 15f
         barChart.xAxis.granularity = 1f
         barChart.xAxis.setDrawLabels(true)
         barChart.xAxis.spaceMin = 5f
         barChart.xAxis.spaceMax = 25f
-        barChart.moveViewToX((votes.size / 2).toFloat())
+        barChart.moveViewToX((values.size / 2).toFloat())
         barChart.setPinchZoom(true)
         barChart.invalidate()
         barChart.animateY(2000)
@@ -302,8 +271,10 @@ class DashboardActivity : AppCompatActivity() {
         if(LocalVariables.Today == 1) start = 1
 
         for (i in 0..6) {
-            LocalVariables.xAxis.add(Config.WEEK_DAYS[(7 + start + i) % 7]);
+            LocalVariables.xAxis.add(Config.WEEK_DAYS[(7 + start + i) % 7])
+            LocalVariables.progress.add(0f)
         }
+
     }
 }
 

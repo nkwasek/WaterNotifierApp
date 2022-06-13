@@ -67,6 +67,8 @@ class TimeSetActivity : AppCompatActivity() {
         val data = hashMapOf(
             "day_start" to LocalVariables.DayStart,
             "day_end" to LocalVariables.DayEnd,
+            "goal" to LocalVariables.Goal,
+            "progress" to LocalVariables.Progress,
         )
 
         db.collection(uid).document(LocalVariables.Today.toString())

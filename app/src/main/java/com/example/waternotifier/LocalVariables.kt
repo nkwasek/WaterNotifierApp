@@ -14,7 +14,7 @@ object LocalVariables {
     var Yesterday = Today - 1
 
     val xAxis = mutableListOf<String>()
-    val goals = ArrayList<Float>()
+    val goals = mutableListOf<Float>()
     val progress = ArrayList<Float>()
 
 }

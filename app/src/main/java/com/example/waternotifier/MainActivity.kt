@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         if (LocalVariables.Today == 1) {
             LocalVariables.Yesterday = 7;
         }
+        else {
+            LocalVariables.Yesterday = LocalVariables.Today - 1
+        }
 
         setContentView(R.layout.activity_loading_screen)
 
