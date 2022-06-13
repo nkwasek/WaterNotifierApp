@@ -157,13 +157,10 @@ class AddDrinkActivity : AppCompatActivity() {
 
     fun writeData() {
         val data = hashMapOf(
-            "day_start" to LocalVariables.DayStart,
-            "day_end" to LocalVariables.DayEnd,
-            "goal" to LocalVariables.Goal,
             "progress" to LocalVariables.Progress,
         )
 
-        db.collection(uid).document(Calendar.DAY_OF_WEEK.toString())
+        db.collection(uid).document(LocalVariables.Today.toString())
             .set(data, SetOptions.merge())
     }
 

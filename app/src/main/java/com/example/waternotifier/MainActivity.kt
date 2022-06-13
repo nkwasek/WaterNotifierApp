@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        LocalVariables.Today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK) - 1
+
+        if (LocalVariables.Today == 1) {
+            LocalVariables.Yesterday = 7;
+        }
 
         setContentView(R.layout.activity_loading_screen)
 

@@ -23,8 +23,8 @@ class SettingsActivity : AppCompatActivity() {
         val dayStop = findViewById<TextView>(R.id.settingsDayEnd)
 
         goalValue.text = LocalVariables.Goal.toString() + " ml"
-        dayStart.text = LocalVariables.DayStart.toString()
-        dayStop.text = LocalVariables.DayEnd.toString()
+        dayStart.text = LocalVariables.DayStart
+        dayStop.text = LocalVariables.DayEnd
 
 
         goalButton.setOnClickListener {
