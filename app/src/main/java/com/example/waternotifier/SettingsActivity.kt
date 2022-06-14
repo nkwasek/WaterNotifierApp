@@ -21,7 +21,7 @@ class SettingsActivity : AppCompatActivity() {
         val dayStart = findViewById<TextView>(R.id.settingsDayStart)
         val dayStop = findViewById<TextView>(R.id.settingsDayEnd)
         val period = findViewById<TextView>(R.id.notificationPeriod)
-        val switch = findViewById<Switch>(R.id.switch1)
+       // val switch = findViewById<Switch>(R.id.switch1)
 
         period.text = LocalVariables.NotificationPeriodUserValue.toString()
 
@@ -42,7 +42,13 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        
+
+//        switch.setOnCheckedChangeListener({ _ , isChecked ->
+//            val message = if (isChecked) "Switch1:ON" else "Switch1:OFF"
+//            Toast.makeText(this@SettingsActivity, message,
+//                Toast.LENGTH_SHORT).show()
+//        })
+//
         val okButton = findViewById<Button>(R.id.settingsOkButton)
         okButton.setOnClickListener{
             LocalVariables.NotificationPeriodUserValue = period.text.toString().toInt()
