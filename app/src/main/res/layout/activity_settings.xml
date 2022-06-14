@@ -131,20 +131,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/switch1"
             android:textSize="23dp"
-            android:text="Period"
+            android:text="Period [min]"
             android:gravity="left"
             android:paddingBottom="15dp"/>
 
         <EditText
+            android:id="@+id/notificationPeriod"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/switch1"
-            android:inputType="time"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="@drawable/rect_rad40_trans"
+            android:inputType="time"
             android:textAlignment="center"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
 
     </RelativeLayout>
 

@@ -33,6 +33,7 @@ class TimeSetActivity : AppCompatActivity() {
         okButton.setOnClickListener{
             LocalVariables.DayStart = startTime.text.toString()
             LocalVariables.DayEnd = stopTime.text.toString()
+            LocalVariables.calculateNotificationPeriod()
             writeData()
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)

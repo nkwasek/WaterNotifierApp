@@ -171,6 +171,7 @@ class DashboardActivity : AppCompatActivity() {
                 }
                 progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
                 plotChart()
+                LocalVariables.calculateNotificationPeriod()
                 Log.w(TAG, LocalVariables.xAxis.toString())
             }
             .addOnFailureListener { exception ->
@@ -247,29 +248,29 @@ class DashboardActivity : AppCompatActivity() {
     }
 
     private fun ifPreviousDay() : Boolean {
-        var yesterdaYEndH = Integer.parseInt(LocalVariables.YesterdayEnd.split(":")[0])
-        var yesterdaYEndM = Integer.parseInt(LocalVariables.YesterdayEnd.split(":")[1])
+        var yesterdayEndH = Integer.parseInt(LocalVariables.YesterdayEnd.split(":")[0])
+        var yesterdayEndM = Integer.parseInt(LocalVariables.YesterdayEnd.split(":")[1])
         var todayStartH = Integer.parseInt(LocalVariables.DayStart.split(":")[0])
         var todayStartM = Integer.parseInt(LocalVariables.DayStart.split(":")[1])
         var nowH = Integer.parseInt(now().split(":")[0])
         var nowM = Integer.parseInt(now().split(":")[1])
 
-        if(yesterdaYEndH in 0 until todayStartH
-            && nowH < yesterdaYEndH) {
+        if(yesterdayEndH in 0 until todayStartH
+            && nowH < yesterdayEndH) {
             return true
         }
-        else if(yesterdaYEndH in 0 until todayStartH
-            && nowH == yesterdaYEndH && nowM < yesterdaYEndM) {
+        else if(yesterdayEndH in 0 until todayStartH
+            && nowH == yesterdayEndH && nowM < yesterdayEndM) {
             return true
         }
-        else if (yesterdaYEndH == todayStartH
-            && yesterdaYEndM < todayStartM
-            && nowH < yesterdaYEndH) {
+        else if (yesterdayEndH == todayStartH
+            && yesterdayEndM < todayStartM
+            && nowH < yesterdayEndH) {
             return true
         }
-        else if (yesterdaYEndH == todayStartH
-            && yesterdaYEndM < todayStartM
-            && nowH == yesterdaYEndH && nowM < yesterdaYEndM) {
+        else if (yesterdayEndH == todayStartH
+            && yesterdayEndM < todayStartM
+            && nowH == yesterdayEndH && nowM < yesterdayEndM) {
             return true
         }
         return false
