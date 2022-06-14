@@ -3,7 +3,9 @@ package com.example.waternotifier
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import android.widget.*
+import androidx.appcompat.widget.SwitchCompat
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
@@ -21,7 +23,8 @@ class SettingsActivity : AppCompatActivity() {
         val dayStart = findViewById<TextView>(R.id.settingsDayStart)
         val dayStop = findViewById<TextView>(R.id.settingsDayEnd)
         val period = findViewById<TextView>(R.id.notificationPeriod)
-       // val switch = findViewById<Switch>(R.id.switch1)
+        val switch = findViewById<SwitchCompat>(R.id.switch1)
+        val timeSetButton = findViewById<Button>(R.id.daytimeChangeButton)
 
         period.text = LocalVariables.NotificationPeriodUserValue.toString()
 
@@ -29,6 +32,17 @@ class SettingsActivity : AppCompatActivity() {
         dayStart.text = LocalVariables.DayStart
         dayStop.text = LocalVariables.DayEnd
 
+        switch.isChecked = LocalVariables.NotificationsEnabled
+
+        if (switch.isChecked) {
+            period.text = LocalVariables.NotificationPeriodUserValue.toString()
+            period.isEnabled = true
+            LocalVariables.NotificationsEnabled = true
+        } else {
+            period.text = ""
+            period.isEnabled = false
+            LocalVariables.NotificationsEnabled = false
+        }
 
         goalButton.setOnClickListener {
             val intent = Intent(this, GoalActivity::class.java)
@@ -36,28 +50,36 @@ class SettingsActivity : AppCompatActivity() {
             finish()
         }
 
-        val timeSetButton = findViewById<Button>(R.id.daytimeChangeButton)
         timeSetButton.setOnClickListener {
             val intent = Intent(this, TimeSetActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-//        switch.setOnCheckedChangeListener({ _ , isChecked ->
-//            val message = if (isChecked) "Switch1:ON" else "Switch1:OFF"
-//            Toast.makeText(this@SettingsActivity, message,
-//                Toast.LENGTH_SHORT).show()
-//        })
-//
+        switch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                period.text = LocalVariables.NotificationPeriodUserValue.toString()
+                period.isEnabled = true
+                LocalVariables.NotificationsEnabled = true
+            } else {
+                period.text = ""
+                period.isEnabled = false
+                LocalVariables.NotificationsEnabled = false
+            }
+        }
+
         val okButton = findViewById<Button>(R.id.settingsOkButton)
         okButton.setOnClickListener{
-            LocalVariables.NotificationPeriodUserValue = period.text.toString().toInt()
+            if(switch.isChecked) {
+                LocalVariables.NotificationPeriodUserValue = period.text.toString().toInt()
+            }
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
             finish()
         }
 
     }
+
 
     override fun onBackPressed() {
         val intent = Intent(this, DashboardActivity::class.java)
