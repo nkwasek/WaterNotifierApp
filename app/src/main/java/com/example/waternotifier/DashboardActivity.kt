@@ -2,32 +2,22 @@ package com.example.waternotifier
 
 import android.content.ContentValues.TAG
 import android.content.Intent
-import android.graphics.Color.BLACK
-import android.graphics.Color.rgb
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
-import androidx.appcompat.app.AppCompatDelegate
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.google.type.DayOfWeek
-import com.google.type.DayOfWeekProto
-import java.text.SimpleDateFormat
-import java.util.*
-import android.graphics.Color
+import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.github.mikephil.charting.formatter.ValueFormatter
-import io.grpc.Context
-import kotlin.collections.ArrayList
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class DashboardActivity : AppCompatActivity() {
@@ -85,7 +75,7 @@ class DashboardActivity : AppCompatActivity() {
             LocalVariables.Progress = 0
             progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
             writeData()
-            readData()
+            this.recreate()
         }
     }
 
@@ -187,34 +177,25 @@ class DashboardActivity : AppCompatActivity() {
 
     fun plotChart() {
 
-        val container = findViewById<RelativeLayout>(R.id.chartContainer)
-        val barChart = findViewById<BarChart>(R.id.barChart)
-
-        val values = ArrayList<Float>()
-        values.add(4f)
-        values.add(5f)
-        values.add(2f)
-        values.add(3f)
-        values.add(2f)
-        values.add(2f)
-        values.add(2f)
-
         setBarChart(LocalVariables.progress as ArrayList<Float>, LocalVariables.xAxis as ArrayList<String>)
-//
-//        val barDataSet = BarDataSet(values, "Water [ml]")
-//        val data = BarData(barDataSet, barDataSet)
-//
-////        barChart.xAxis = LocalVariables.xAxis
-//
-//        barChart.background = resources.getDrawable(R.drawable.rect_rad10_mid)
-//        //barChart.animateXY(3000, 3000)
 
     }
 
     private fun setBarChart(values: ArrayList<Float>, xAxisLabels: ArrayList<String>) {
+
+        //val layout = findViewById<RelativeLayout>(R.id.chartContainer)
+       // layout.removeAllViews()
+//        val barChart: BarChart
+//        barChart= BarChart(this)
+//        barChart.layoutParams =
+//            RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT)
+//        layout.addView(barChart)
         val barChart = findViewById<BarChart>(R.id.barChart)
+
         val entries = ArrayList<BarEntry>()
+        entries.clear()
         val colors = ArrayList<Int>()
+        colors.clear()
 
         var it = 0f
 
@@ -223,7 +204,8 @@ class DashboardActivity : AppCompatActivity() {
             colors.add(resources.getColor(R.color.text_color))
             it++
         }
-        val barDataSet = BarDataSet(entries, "Label")
+
+        val barDataSet = BarDataSet(entries, "")
         barDataSet.valueTextSize = 14f
         val data = BarData(barDataSet)
         barChart.data = data
@@ -245,6 +227,7 @@ class DashboardActivity : AppCompatActivity() {
         barChart.setPinchZoom(true)
         barChart.invalidate()
         barChart.animateY(2000)
+
     }
 
 
