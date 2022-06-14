@@ -98,8 +98,7 @@ class DashboardActivity : AppCompatActivity() {
         LocalVariables.progress.clear()
         Log.w(TAG, "READ DATA")
 
-
-        db.collection(uid.toString())
+        db.collection(uid)
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
@@ -107,8 +106,6 @@ class DashboardActivity : AppCompatActivity() {
                 }
                 val progress = findViewById<TextView>(R.id.progressTextView)
                 Log.w(TAG, "LISTENER")
-
-                //numberOfDocuments = documents.count()
 
                 if(documents.count() > 0) {
 
@@ -127,10 +124,6 @@ class DashboardActivity : AppCompatActivity() {
                     fillXAxis()
 
                     for (document in documents) {
-//                        var index = Integer.parseInt(document.id) - 1
-//
-//                        LocalVariables.progress.add(document.data.get("progress").toString().toFloat())
-//                        LocalVariables.goals.add(document.data.get("goal").toString().toFloat())
 
                         if (document.id == LocalVariables.Today.toString()) {
                             LocalVariables.DayStart = document.data.get("day_start").toString()
@@ -148,6 +141,7 @@ class DashboardActivity : AppCompatActivity() {
                         for (document in documents) {
                             if (document.id.toInt() == (7 + start + i) % 7 + 1) {
                                 LocalVariables.progress.add(i, document.data.get("progress").toString().toFloat())
+                                LocalVariables.goals.add(i, document.data.get("goal").toString().toFloat())
                                 Log.w(TAG, "ADD")
                                 ifFound = true
                                 break
@@ -155,6 +149,7 @@ class DashboardActivity : AppCompatActivity() {
                         }
                         if (!ifFound) {
                             LocalVariables.progress.add(i, 0f)
+                            LocalVariables.goals.add(i, 0f)
                             Log.w(TAG, "ADD ZERO " + i.toString())
                         }
                         
@@ -183,13 +178,6 @@ class DashboardActivity : AppCompatActivity() {
 
     private fun setBarChart(values: ArrayList<Float>, xAxisLabels: ArrayList<String>) {
 
-        //val layout = findViewById<RelativeLayout>(R.id.chartContainer)
-       // layout.removeAllViews()
-//        val barChart: BarChart
-//        barChart= BarChart(this)
-//        barChart.layoutParams =
-//            RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT)
-//        layout.addView(barChart)
         val barChart = findViewById<BarChart>(R.id.barChart)
 
         val entries = ArrayList<BarEntry>()
@@ -198,25 +186,39 @@ class DashboardActivity : AppCompatActivity() {
         colors.clear()
 
         var it = 0f
+        var sum = 0f
 
-        values.forEach { value ->
-            entries.add(BarEntry(it, value))
-            colors.add(resources.getColor(R.color.text_color))
+        for(i in 0..values.size-1) {
+            entries.add(BarEntry(it, values[i]))
             it++
+            sum += values[i]
+            if(values[i] >= LocalVariables.goals[i]) {
+                colors.add(resources.getColor(R.color.green))
+            }
+            else {
+                colors.add(resources.getColor(R.color.red))
+            }
         }
 
-        val barDataSet = BarDataSet(entries, "")
+//        values.forEach { value ->
+//            entries.add(BarEntry(it, value))
+//            colors.add(resources.getColor(R.color.text_color))
+//            it++
+//        }
+
+        val barDataSet = BarDataSet(entries, "Sum from last 7 day: " + (sum/1000) + "l")
         barDataSet.valueTextSize = 14f
         val data = BarData(barDataSet)
         barChart.data = data
         barChart.xAxis.valueFormatter = IndexAxisValueFormatter(xAxisLabels)
         barChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+        barChart.legend.isEnabled = false
         barChart.xAxis.textSize = 12f
         barChart.axisLeft.textSize = 12f
         barDataSet.colors = colors
         barChart.axisRight.isEnabled = false
         barChart.description.isEnabled = false
-        barChart.setVisibleXRangeMaximum(5f)
+        barChart.setVisibleXRangeMaximum(7f)
         barChart.xAxis.labelCount = values.size
         barChart.xAxis.xOffset = 15f
         barChart.xAxis.granularity = 1f

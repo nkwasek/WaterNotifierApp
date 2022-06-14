@@ -16,5 +16,7 @@
     <color name="grey_very_light">#9B9B9B</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="grey_icons">#656F74</color>
+    <color name="green">#D98BDF97</color>
+    <color name="red">#D9C56D89</color>
 
 </resources>

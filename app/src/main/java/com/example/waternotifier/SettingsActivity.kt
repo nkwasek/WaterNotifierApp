@@ -3,9 +3,7 @@ package com.example.waternotifier
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
@@ -23,6 +21,7 @@ class SettingsActivity : AppCompatActivity() {
         val dayStart = findViewById<TextView>(R.id.settingsDayStart)
         val dayStop = findViewById<TextView>(R.id.settingsDayEnd)
         val period = findViewById<TextView>(R.id.notificationPeriod)
+        val switch = findViewById<Switch>(R.id.switch1)
 
         period.text = LocalVariables.NotificationPeriodUserValue.toString()
 
@@ -43,7 +42,7 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
+        
         val okButton = findViewById<Button>(R.id.settingsOkButton)
         okButton.setOnClickListener{
             LocalVariables.NotificationPeriodUserValue = period.text.toString().toInt()

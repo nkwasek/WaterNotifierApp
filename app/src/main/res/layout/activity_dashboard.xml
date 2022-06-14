@@ -134,7 +134,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/statisticsTextView"
-            android:layout_margin="15dp">
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="20dp">
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/barChart"

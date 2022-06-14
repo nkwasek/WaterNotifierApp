@@ -112,19 +112,19 @@
                 android:gravity="left"
                 android:paddingBottom="15dp"/>
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch1"
-                android:layout_below="@id/notification_title"
-                android:layout_width="wrap_content"
-                android:gravity="right"
-                android:layout_alignParentRight="true"
-                android:layout_height="wrap_content"
-                app:switchMinWidth="50dp"
-                android:textColor="@color/text_color"
-                android:checked="true"
-                app:switchPadding="15dp"
-                app:thumbTint="@drawable/switch_color_selector"
-                app:trackTint="@color/grey_very_light"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notification_title"
+            android:layout_alignParentRight="true"
+            android:checked="true"
+            android:gravity="right"
+            android:textColor="@color/text_color"
+            app:switchMinWidth="50dp"
+            app:switchPadding="15dp"
+            app:thumbTint="@drawable/switch_color_selector"
+            app:trackTint="@color/grey_very_light" />
 
         <TextView
             android:layout_width="match_parent"
