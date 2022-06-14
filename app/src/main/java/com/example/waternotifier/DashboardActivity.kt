@@ -172,6 +172,11 @@ class DashboardActivity : AppCompatActivity() {
                 progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
                 plotChart()
                 LocalVariables.calculateNotificationPeriod()
+
+                if (LocalVariables.NotificationPeriodUserValue == -1) {
+                    LocalVariables.NotificationPeriodUserValue = LocalVariables.NotificationPeriod
+                }
+
                 Log.w(TAG, LocalVariables.xAxis.toString())
             }
             .addOnFailureListener { exception ->

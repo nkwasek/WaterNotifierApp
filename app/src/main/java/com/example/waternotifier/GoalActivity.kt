@@ -47,6 +47,8 @@ class GoalActivity : AppCompatActivity() {
             LocalVariables.Goal = Integer.parseInt(dailyGoal.text.split(' ')[0])
 
             LocalVariables.calculateNotificationPeriod()
+            LocalVariables.NotificationPeriodUserValue = LocalVariables.NotificationPeriod
+
             writeData()
 
             val intent = Intent(this, SettingsActivity::class.java)

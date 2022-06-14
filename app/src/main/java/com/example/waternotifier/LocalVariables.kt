@@ -11,6 +11,7 @@ object LocalVariables {
     var YesterdayEnd = "00:00"
 
     var NotificationPeriod = 60
+    var NotificationPeriodUserValue = -1
 
     var Today = Calendar.DAY_OF_WEEK
     var Yesterday = Today - 1

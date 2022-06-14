@@ -24,7 +24,7 @@ class SettingsActivity : AppCompatActivity() {
         val dayStop = findViewById<TextView>(R.id.settingsDayEnd)
         val period = findViewById<TextView>(R.id.notificationPeriod)
 
-        period.text = LocalVariables.NotificationPeriod.toString()
+        period.text = LocalVariables.NotificationPeriodUserValue.toString()
 
         goalValue.text = LocalVariables.Goal.toString() + " ml"
         dayStart.text = LocalVariables.DayStart
@@ -46,7 +46,7 @@ class SettingsActivity : AppCompatActivity() {
 
         val okButton = findViewById<Button>(R.id.settingsOkButton)
         okButton.setOnClickListener{
-            LocalVariables.NotificationPeriod = period.text.toString().toInt()
+            LocalVariables.NotificationPeriodUserValue = period.text.toString().toInt()
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
             finish()
