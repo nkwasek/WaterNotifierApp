@@ -105,6 +105,7 @@ class DashboardActivity : AppCompatActivity() {
         LocalVariables.xAxis.clear()
         LocalVariables.goals.clear()
         LocalVariables.progress.clear()
+        Log.w(TAG, "READ DATA")
 
 
         db.collection(uid.toString())
@@ -114,6 +115,7 @@ class DashboardActivity : AppCompatActivity() {
                     Log.d(TAG, "${document.id} => ${document.data}")
                 }
                 val progress = findViewById<TextView>(R.id.progressTextView)
+                Log.w(TAG, "LISTENER")
 
                 //numberOfDocuments = documents.count()
 
@@ -151,10 +153,18 @@ class DashboardActivity : AppCompatActivity() {
                     if(LocalVariables.Today == 1) start = 1
 
                     for (i in 0..6) {
+                        var ifFound = false
                         for (document in documents) {
-                            if (document.id.toInt() == (7 + start + i) % 7) {
-                                LocalVariables.progress.add((7 + start + i) % 7, document.data.get("progress").toString().toFloat())
+                            if (document.id.toInt() == (7 + start + i) % 7 + 1) {
+                                LocalVariables.progress.add(i, document.data.get("progress").toString().toFloat())
+                                Log.w(TAG, "ADD")
+                                ifFound = true
+                                break
                             }
+                        }
+                        if (!ifFound) {
+                            LocalVariables.progress.add(i, 0f)
+                            Log.w(TAG, "ADD ZERO " + i.toString())
                         }
                         
                     }
@@ -201,12 +211,12 @@ class DashboardActivity : AppCompatActivity() {
 
         var it = 0f
 
-        values.forEach { vote ->
-            entries.add(BarEntry(it, vote))
-            colors.add(Color.GRAY)
+        values.forEach { value ->
+            entries.add(BarEntry(it, value))
+            colors.add(resources.getColor(R.color.text_color))
             it++
         }
-        val barDataSet = BarDataSet(entries, "")
+        val barDataSet = BarDataSet(entries, "Label")
         barDataSet.valueTextSize = 14f
         val data = BarData(barDataSet)
         barChart.data = data
@@ -272,7 +282,8 @@ class DashboardActivity : AppCompatActivity() {
 
         for (i in 0..6) {
             LocalVariables.xAxis.add(Config.WEEK_DAYS[(7 + start + i) % 7])
-            LocalVariables.progress.add(0f)
+            Log.w(TAG, "ADD AXIS " + i.toString())
+            //LocalVariables.progress.add(0f)
         }
 
     }

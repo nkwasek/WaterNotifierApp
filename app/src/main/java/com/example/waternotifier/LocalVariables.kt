@@ -15,6 +15,6 @@ object LocalVariables {
 
     val xAxis = mutableListOf<String>()
     val goals = mutableListOf<Float>()
-    val progress = ArrayList<Float>()
+    val progress = mutableListOf<Float>()
 
 }
