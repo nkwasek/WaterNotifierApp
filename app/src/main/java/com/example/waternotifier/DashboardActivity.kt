@@ -85,6 +85,7 @@ class DashboardActivity : AppCompatActivity() {
             LocalVariables.Progress = 0
             progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
             writeData()
+            readData()
         }
     }
 
@@ -96,7 +97,7 @@ class DashboardActivity : AppCompatActivity() {
             "progress" to LocalVariables.Progress,
         )
 
-        db.collection(uid).document(Calendar.DAY_OF_WEEK.toString())
+        db.collection(uid).document(LocalVariables.Today.toString())
             .set(data, SetOptions.merge())
     }
 

@@ -32,7 +32,7 @@ object LocalVariables {
         var notificationsCount = Goal / Config.CUP_VOLUME
 
         if(end < start) {
-            NotificationPeriod = (1440 - start + end) / notificationsCount
+            NotificationPeriod = (24 * 60 - start + end) / notificationsCount
         }
         else {
             NotificationPeriod = (end - start) / notificationsCount
