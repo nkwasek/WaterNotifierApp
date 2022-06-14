@@ -7,6 +7,7 @@ import android.app.PendingIntent
 import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Context
+
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private val db = Firebase.firestore
     private val uid = Firebase.auth.currentUser?.uid.toString()
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -64,9 +66,11 @@ class MainActivity : AppCompatActivity() {
         }, 1000)
 
         createNotificationChannel()
-        scheduleNotification()
+        //scheduleNotification()
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun scheduleNotification() {
         val intent = Intent(applicationContext, Notification::class.java)
         intent.putExtra(notifyTitle, "Drink notification")
@@ -79,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         val calendar = Calendar.getInstance()
-        calendar.set(2022,5,14,21,48)
+        calendar.set(2022,5,14,22,4)
         val time = calendar.timeInMillis
         Log.d(TAG, calendar.toString())
         Log.d(TAG, time.toString())
@@ -93,6 +97,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel() {
         val name = "Notification Channel"
         val desc = "A Description of the Channel"

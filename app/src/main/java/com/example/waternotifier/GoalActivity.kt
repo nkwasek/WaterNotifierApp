@@ -1,5 +1,6 @@
 package com.example.waternotifier
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -39,9 +40,12 @@ class GoalActivity : AppCompatActivity() {
         val sexSpinner = findViewById<Spinner>(R.id.spinnerSex)
         val lifestyleSpinner = findViewById<Spinner>(R.id.spinnerLifestyle)
         val seekBar = findViewById<SeekBar>(R.id.seekBar)
+
         dailyGoal.text = LocalVariables.Goal.toString()  + " ml";
 
         dailyValue = Integer.parseInt(dailyGoal.text.split(' ')[0])
+
+        seekBar.setProgress(dailyValue)
 
         okButton.setOnClickListener{
             LocalVariables.Goal = Integer.parseInt(dailyGoal.text.split(' ')[0])
@@ -50,6 +54,8 @@ class GoalActivity : AppCompatActivity() {
             LocalVariables.NotificationPeriodUserValue = LocalVariables.NotificationPeriod
 
             writeData()
+
+            LocalVariables.scheduleNotification(this)
 
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)

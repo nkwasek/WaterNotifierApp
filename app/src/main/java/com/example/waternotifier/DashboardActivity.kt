@@ -1,10 +1,17 @@
 package com.example.waternotifier
 
+import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.XAxis
@@ -157,11 +164,13 @@ class DashboardActivity : AppCompatActivity() {
                 }
                 progress.text = LocalVariables.Progress.toString() + " ml / " + LocalVariables.Goal.toString() + " ml"
                 plotChart()
-                LocalVariables.calculateNotificationPeriod()
 
                 if (LocalVariables.NotificationPeriodUserValue == -1) {
                     LocalVariables.NotificationPeriodUserValue = LocalVariables.NotificationPeriod
                 }
+
+                LocalVariables.calculateNotificationPeriod()
+                LocalVariables.scheduleNotification(this)
 
                 Log.w(TAG, LocalVariables.xAxis.toString())
             }
@@ -277,7 +286,44 @@ class DashboardActivity : AppCompatActivity() {
             Log.w(TAG, "ADD AXIS " + i.toString())
             //LocalVariables.progress.add(0f)
         }
+    }
 
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun scheduleNotification() {
+        val intent = Intent(applicationContext, Notification::class.java)
+        intent.putExtra(notifyTitle, "Drink notification")
+        intent.putExtra(notifyMessage, "Drink a glass of water!")
+        val pendingIntent = PendingIntent.getBroadcast(
+            applicationContext,
+            notificationID,
+            intent,
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val calendar = Calendar.getInstance()
+        calendar.set(2022,5,14,22,4)
+        val time = calendar.timeInMillis
+        Log.d(TAG, calendar.toString())
+        Log.d(TAG, time.toString())
+        Log.d(TAG, Calendar.MONTH.toString())
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+        alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            time,
+            pendingIntent
+        )
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun createNotificationChannel() {
+        val name = "Notification Channel"
+        val desc = "A Description of the Channel"
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel(channelID, name, importance)
+        channel.description = desc
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
     }
 }
 

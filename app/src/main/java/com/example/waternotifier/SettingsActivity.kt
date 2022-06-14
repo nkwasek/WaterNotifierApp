@@ -1,5 +1,6 @@
 package com.example.waternotifier
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -38,6 +39,8 @@ class SettingsActivity : AppCompatActivity() {
             period.text = LocalVariables.NotificationPeriodUserValue.toString()
             period.isEnabled = true
             LocalVariables.NotificationsEnabled = true
+
+
         } else {
             period.text = ""
             period.isEnabled = false
@@ -73,13 +76,14 @@ class SettingsActivity : AppCompatActivity() {
             if(switch.isChecked) {
                 LocalVariables.NotificationPeriodUserValue = period.text.toString().toInt()
             }
+
+            LocalVariables.scheduleNotification(this)
+
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
             finish()
         }
-
     }
-
 
     override fun onBackPressed() {
         val intent = Intent(this, DashboardActivity::class.java)

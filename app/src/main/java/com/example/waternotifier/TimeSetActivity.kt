@@ -1,6 +1,7 @@
 package com.example.waternotifier
 
 import android.app.TimePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -36,6 +37,7 @@ class TimeSetActivity : AppCompatActivity() {
 
             LocalVariables.calculateNotificationPeriod()
             LocalVariables.NotificationPeriodUserValue = LocalVariables.NotificationPeriod
+            LocalVariables.scheduleNotification(this)
 
             writeData()
             val intent = Intent(this, SettingsActivity::class.java)
