@@ -12,6 +12,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
 import java.util.*
 
 class AddDrinkActivity : AppCompatActivity() {
@@ -161,6 +162,8 @@ class AddDrinkActivity : AppCompatActivity() {
             "day_end" to LocalVariables.DayEnd,
             "goal" to LocalVariables.Goal,
             "progress" to LocalVariables.Progress,
+            "period" to LocalVariables.NotificationPeriodUserValue,
+            "if_notification" to LocalVariables.NotificationsEnabled,
         )
 
         db.collection(uid).document(LocalVariables.Today.toString())

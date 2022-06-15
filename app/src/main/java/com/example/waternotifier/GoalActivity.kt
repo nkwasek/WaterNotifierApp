@@ -202,6 +202,8 @@ class GoalActivity : AppCompatActivity() {
             "day_end" to LocalVariables.DayEnd,
             "goal" to LocalVariables.Goal,
             "progress" to LocalVariables.Progress,
+            "period" to LocalVariables.NotificationPeriodUserValue,
+            "if_notification" to LocalVariables.NotificationsEnabled,
         )
 
         db.collection(uid).document(LocalVariables.Today.toString())

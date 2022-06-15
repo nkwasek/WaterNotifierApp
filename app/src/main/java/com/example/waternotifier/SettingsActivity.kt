@@ -14,6 +14,8 @@ import com.google.firebase.ktx.Firebase
 import java.util.*
 
 class SettingsActivity : AppCompatActivity() {
+    private val db = Firebase.firestore
+    private val uid = Firebase.auth.currentUser?.uid.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,12 +79,28 @@ class SettingsActivity : AppCompatActivity() {
                 LocalVariables.NotificationPeriodUserValue = period.text.toString().toInt()
             }
 
+            writeData()
+
             LocalVariables.scheduleNotification(this)
 
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
             finish()
         }
+    }
+
+    fun writeData() {
+        val data = hashMapOf(
+            "day_start" to LocalVariables.DayStart,
+            "day_end" to LocalVariables.DayEnd,
+            "goal" to LocalVariables.Goal,
+            "progress" to LocalVariables.Progress,
+            "period" to LocalVariables.NotificationPeriodUserValue,
+            "if_notification" to LocalVariables.NotificationsEnabled,
+        )
+
+        db.collection(uid).document(LocalVariables.Today.toString())
+            .set(data, SetOptions.merge())
     }
 
     override fun onBackPressed() {

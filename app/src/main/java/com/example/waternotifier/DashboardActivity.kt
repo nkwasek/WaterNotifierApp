@@ -92,6 +92,8 @@ class DashboardActivity : AppCompatActivity() {
             "day_end" to LocalVariables.DayEnd,
             "goal" to LocalVariables.Goal,
             "progress" to LocalVariables.Progress,
+            "period" to LocalVariables.NotificationPeriodUserValue,
+            "if_notification" to LocalVariables.NotificationsEnabled,
         )
 
         db.collection(uid).document(LocalVariables.Today.toString())
@@ -137,6 +139,8 @@ class DashboardActivity : AppCompatActivity() {
                             LocalVariables.DayEnd = document.data.get("day_end").toString()
                             LocalVariables.Progress = Integer.parseInt(document.data.get("progress").toString())
                             LocalVariables.Goal = Integer.parseInt(document.data.get("goal").toString())
+                            LocalVariables.NotificationsEnabled = document.data.get("if_notification").toString().toBoolean()
+                            LocalVariables.NotificationPeriodUserValue = Integer.parseInt(document.data.get("period").toString())
                         }
                     }
 
